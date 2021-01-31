@@ -1,0 +1,660 @@
+@charset "UTF-8";
+/*------------------- RESET ------------------- */
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/*------------------- FONTS ------------------- */
+/*------------------- TEXT ------------------- */
+.tittle {
+  text-align: center;
+  margin: 1rem 0;
+  font-family: 'Raleway', sans-serif;
+  font-size: 3rem;
+}
+
+/*------------------- BUTTONS ------------------- */
+.btn {
+  border-radius: .25rem;
+  text-decoration: none;
+  padding: 0.5rem;
+  color: white;
+  -webkit-transition: background-color 0.35s ease-in;
+  transition: background-color 0.35s ease-in;
+  font-family: 'Raleway', sans-serif;
+}
+
+.btn::after {
+  content: '';
+  display: block;
+  height: 2px;
+  background: #44FFD4;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: right;
+          transform-origin: right;
+  -webkit-transition: -webkit-transform .2s ease-in-out;
+  transition: -webkit-transform .2s ease-in-out;
+  transition: transform .2s ease-in-out;
+  transition: transform .2s ease-in-out, -webkit-transform .2s ease-in-out;
+}
+
+.btn:hover::after {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+  -webkit-transform-origin: left;
+          transform-origin: left;
+}
+
+/*------------------- SVG ------------------- */
+svg {
+  position: absolute;
+  z-index: 1;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.topWave {
+  top: 0;
+  left: 0;
+}
+
+.bottomWave {
+  bottom: 0;
+  left: 0;
+}
+
+/*------------------- CONTAINERS ------------------- */
+.container {
+  position: relative;
+  overflow: hidden;
+}
+
+/*------------------- NAVBAR ------------------- */
+header {
+  background-color: #266FF5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+header .icon {
+  display: none;
+}
+
+header .header_logo {
+  width: 20rem;
+  margin-left: -25rem;
+}
+
+header ul {
+  list-style: none;
+  margin-right: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header ul a {
+  font-size: 1.25rem;
+  margin: 1.25rem;
+  text-decoration: none;
+  color: white;
+  font-family: 'Raleway', sans-serif;
+}
+
+header ul a::after {
+  content: '';
+  display: block;
+  height: 2px;
+  background: #44FFD4;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: right;
+          transform-origin: right;
+  -webkit-transition: -webkit-transform .2s ease-in-out;
+  transition: -webkit-transform .2s ease-in-out;
+  transition: transform .2s ease-in-out;
+  transition: transform .2s ease-in-out, -webkit-transform .2s ease-in-out;
+}
+
+header ul a:hover::after {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+  -webkit-transform-origin: left;
+          transform-origin: left;
+}
+
+/*------------------- HERO ------------------- */
+.hero {
+  background-image: url(images/background/img_hero.jpg);
+  background-size: cover;
+  background-position: 50% 40%;
+  height: 90vh;
+}
+
+.hero p {
+  position: relative;
+  z-index: 2;
+  top: 18rem;
+  margin: 0 0 2rem 3rem;
+  font-family: 'Raleway', sans-serif;
+  font-size: 5rem;
+  font-weight: 600;
+  color: #266FF5;
+}
+
+.hero p span {
+  color: #44FFD4;
+}
+
+/*------------------- NOSOTROS ------------------- */
+.nosotros {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.nosotros .nosotros-txt {
+  font-size: 1.4rem;
+  color: #266FF5;
+  background-color: white;
+  width: 40%;
+  margin-bottom: 12rem;
+  padding: 0 2rem;
+  z-index: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.nosotros .nosotros-txt p {
+  margin: 1rem 0;
+}
+
+.nosotros .nosotros-img {
+  width: 60%;
+  background-image: url(images/background/img_nosotros.jpg);
+  background-size: cover;
+  background-position: 90% 50%;
+  height: 100vh;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.nosotros .nosotros-img:hover {
+  -webkit-transform: scale(1.03);
+          transform: scale(1.03);
+}
+
+.nosotros .bottomWave {
+  z-index: 3;
+}
+
+/*------------------- CRÉDITOS ------------------- */
+.creditos {
+  background-color: #266FF5;
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.creditos .txt {
+  color: white;
+  font-size: 1.4rem;
+}
+
+.creditos div {
+  padding-top: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.creditos div article {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 2rem;
+  padding: 1rem;
+  height: 20rem;
+  width: 24rem;
+  background-size: cover;
+  background-position: center;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.creditos div article:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+.creditos div article img {
+  width: 7rem;
+  margin-top: 1.5rem;
+}
+
+.creditos .step1 {
+  background-image: url(images/background/blob1.svg);
+}
+
+.creditos .step2 {
+  background-image: url(images/background/blob2.svg);
+}
+
+.creditos .step3 {
+  background-image: url(images/background/blob3.svg);
+}
+
+/*------------------- SIMULADOR ------------------- */
+.simulador {
+  padding: 15rem 0;
+  height: 50rem;
+}
+
+.simulador .simulador_nav {
+  list-style: none;
+  margin-right: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.simulador .simulador_nav a {
+  font-size: 1.25rem;
+  margin: 1.25rem;
+  text-decoration: none;
+  color: #266FF5;
+  font-family: 'Raleway', sans-serif;
+}
+
+.simulador .simulador_nav a::after {
+  content: '';
+  display: block;
+  height: 2px;
+  background: #44FFD4;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: right;
+          transform-origin: right;
+  -webkit-transition: -webkit-transform .2s ease-in-out;
+  transition: -webkit-transform .2s ease-in-out;
+  transition: transform .2s ease-in-out;
+  transition: transform .2s ease-in-out, -webkit-transform .2s ease-in-out;
+}
+
+.simulador .simulador_nav a:hover::after {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+  -webkit-transform-origin: left;
+          transform-origin: left;
+}
+
+.simulador #credit_personal:target {
+  left: 5rem;
+}
+
+.simulador #credit_prendario:target {
+  left: 0;
+}
+
+.simulador #credit_hipotecario:target {
+  left: 0;
+}
+
+.simulador #credit_empresarial:target {
+  left: 0;
+}
+
+.simulador article {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 3rem 0;
+  position: absolute;
+  left: -100%;
+  -webkit-transition: left 0.5s;
+  transition: left 0.5s;
+}
+
+.simulador article .txt {
+  font-size: 1.1rem;
+  max-width: 50rem;
+}
+
+.simulador article .txt p {
+  margin: .5rem 0;
+}
+
+.simulador article .credit_img {
+  width: 30rem;
+}
+
+/*------------------- CONTACTO ------------------- */
+.contacto {
+  background-color: #d0cde1;
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.contacto p {
+  font-size: 1.4rem;
+}
+
+.contacto div {
+  padding: 2rem 0 15rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.contacto div article {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 2rem;
+  padding: 1rem;
+  height: 22rem;
+  width: 24rem;
+  background-size: cover;
+  background-position: center;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.contacto div article:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+.contacto div article h2 {
+  max-width: 14rem;
+}
+
+.contacto div article img {
+  width: 7rem;
+  margin-top: 1.5rem;
+}
+
+.contacto .whatsapp {
+  background-image: url(images/background/blob4.svg);
+}
+
+.contacto .phone {
+  background-image: url(images/background/blob5.svg);
+}
+
+.contacto .email {
+  background-image: url(images/background/blob6.svg);
+}
+
+/*------------------- FOOTER ------------------- */
+footer {
+  background-color: black;
+  color: white;
+}
+
+footer .footer_container {
+  margin-top: -6rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+footer .footer_container .footer_logo {
+  width: 18rem;
+}
+
+footer .footer_container .footer_nav_desktop, footer .footer_container .footer_nav_mobile {
+  padding-top: 10.2rem;
+  margin-bottom: 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+}
+
+footer .footer_container .footer_nav_desktop p, footer .footer_container .footer_nav_mobile p {
+  font-size: 1.5rem;
+}
+
+footer .footer_container .footer_nav_desktop a, footer .footer_container .footer_nav_mobile a {
+  color: white;
+  margin: .3rem 0;
+  text-decoration: none;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+footer .footer_container .footer_nav_desktop a:hover, footer .footer_container .footer_nav_mobile a:hover {
+  color: #44FFD4;
+}
+
+footer .footer_container .footer_nav_mobile {
+  display: none;
+}
+
+footer .footer_container .socialNetwork {
+  color: white;
+  font-size: 2rem;
+  margin: 0 .5rem;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+footer .footer_container .socialNetwork:hover {
+  color: #44FFD4;
+}
+
+footer .footer_container .usuariosFinancieros {
+  width: 15rem;
+}
+
+/*------------------- MOBILE ------------------- */
+@media screen and (max-width: 767px) {
+  header .header_logo {
+    width: 15rem;
+    margin: 0 0 0 6rem;
+  }
+  header nav {
+    position: fixed;
+    left: -100%;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background: white;
+    -webkit-transition: left 0.5s;
+    transition: left 0.5s;
+    z-index: 3;
+  }
+  header nav ul {
+    width: 100%;
+    height: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  header nav ul li {
+    margin: 1rem 0;
+  }
+  header nav ul a {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #266FF5;
+  }
+  header #menu:target {
+    left: 0;
+  }
+  header .icon {
+    display: block;
+    width: 3rem;
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+  }
+  .hero p {
+    position: relative;
+    z-index: 2;
+    top: 2.5rem;
+    margin: 0 0 2rem 1rem;
+    font-size: 4rem;
+    max-width: 7rem;
+  }
+  .nosotros {
+    display: block;
+  }
+  .nosotros .nosotros-txt {
+    width: 100%;
+    margin-bottom: 1rem;
+    text-align: center;
+    margin-top: 2rem;
+  }
+  .nosotros .nosotros-img {
+    display: none;
+  }
+  .creditos div {
+    padding-top: 1rem;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .creditos div article {
+    margin: 1rem;
+  }
+  .contacto div {
+    padding: 2rem 0 4rem 0;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .contacto div article {
+    margin: 1rem;
+  }
+  footer .footer_container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-flow: column-reverse;
+            flex-flow: column-reverse;
+    margin-top: -8rem;
+  }
+  footer .footer_container .footer_logo {
+    margin-bottom: 1rem;
+  }
+  footer .footer_container .footer_nav_desktop {
+    display: none;
+  }
+  footer .footer_container .footer_nav_mobile {
+    text-align: center;
+    margin-bottom: 0rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  footer .footer_container .socialNetwork {
+    margin: 3rem 1rem;
+  }
+  footer .footer_container .usuariosFinancieros {
+    display: none;
+  }
+}
+/*# sourceMappingURL=styles.css.map */

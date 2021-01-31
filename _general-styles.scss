@@ -1,0 +1,84 @@
+/*------------------- RESET ------------------- */
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+html, body {
+overflow-x: hidden;
+overflow-y: auto;
+width: 100%;
+font-family: 'Montserrat', sans-serif;
+}
+
+html {
+scroll-behavior: smooth;
+}
+
+/*------------------- FONTS ------------------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+/*------------------- TEXT ------------------- */
+
+.tittle {
+text-align: center;
+margin: 1rem 0;
+font-family: 'Raleway', sans-serif;
+font-size: 3rem;
+}
+
+/*------------------- BUTTONS ------------------- */
+
+.btn {
+border-radius: .25rem;
+text-decoration: none;
+padding: 0.5rem;
+color: white;
+transition: background-color 0.35s ease-in;
+font-family: 'Raleway', sans-serif;
+
+    &::after{
+    content: '';
+    display: block;
+    height: 2px;
+    background: #44FFD4;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform .2s ease-in-out;
+    }
+
+    &:hover::after{
+    transform: scaleX(1);
+    transform-origin: left;
+    }
+}
+
+/*------------------- SVG ------------------- */
+
+svg {
+position: absolute;
+z-index: 1;
+overflow: hidden;
+line-height: 0;
+}
+
+.topWave {
+top: 0;
+left: 0;
+}
+
+.bottomWave {
+bottom: 0;
+left: 0;
+}
+
+/*------------------- CONTAINERS ------------------- */
+
+.container {
+position: relative;
+overflow: hidden;
+}

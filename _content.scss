@@ -1,0 +1,245 @@
+/*------------------- HERO ------------------- */
+
+.hero {
+    background-image: url(images/background/img_hero.webp);
+    background-size: cover;
+    background-position: 50% 40%;
+    height: 90vh;
+    
+    p {
+    position: relative;
+    z-index: 2;
+    top: 18rem;
+    margin: 0 0 2rem 3rem;
+    font-family: 'Raleway', sans-serif;
+    font-size: 5rem;
+    font-weight: 600;
+    color: $blue;
+        span {
+        color: $aquaMarine;
+        }
+    }
+}
+
+/*------------------- NOSOTROS ------------------- */
+
+.nosotros {
+display: flex;
+
+    .nosotros-txt{
+    font-size: 1.4rem;
+    color: $blue;
+    background-color: white;
+    width: 40%;
+    margin-bottom: 12rem;
+    padding: 0 2rem;
+    z-index: 2;
+    display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        p {
+        margin: 1rem 0;
+        }
+    }
+
+    .nosotros-img{
+    width: 60%;
+    background-image: url(images/background/img_nosotros.webp);
+    background-size: cover;
+    background-position: 90% 50%;
+    height: 100vh;
+    transition: .5s;
+
+    &:hover {
+        transform: scale(1.03);
+        }
+    }
+
+    .bottomWave {
+    z-index: 3;
+    }
+}
+
+/*------------------- CRÉDITOS ------------------- */
+
+.creditos {
+background-color: $blue;
+text-align: center;
+padding: 3rem 0;
+
+    .txt {
+    color: white;
+    font-size: 1.4rem;
+    }
+
+    div {
+    padding-top: 2rem;
+    display: flex;
+        justify-content: center;
+        align-items: center;
+
+        article {
+        display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        margin: 0 2rem;
+        padding: 1rem;
+        height: 20rem;
+        width: 24rem;
+        background-size: cover;
+        background-position: center;
+        transition: .5s;
+
+        &:hover {
+            transform: scale(1.05);
+            }
+
+            img {
+            width: 7rem;
+            margin-top: 1.5rem;
+            }
+        }
+    }
+
+    .step1 {
+    background-image: url(images/background/blob1.svg);
+    }
+    .step2 {
+    background-image: url(images/background/blob2.svg);
+    }
+    .step3 {
+    background-image: url(images/background/blob3.svg);
+    }
+}
+
+/*------------------- SIMULADOR ------------------- */
+
+.simulador {
+padding: 15rem 0;
+height: 50rem;
+
+    .simulador_nav {
+    list-style: none;
+    margin-right: 2rem;
+    display: flex;
+        align-items: center;
+        justify-content: center;
+    
+        a {
+        font-size: 1.25rem;
+        margin: 1.25rem;
+        text-decoration: none;
+        color: $blue;
+        font-family: 'Raleway', sans-serif;
+        
+            &::after{
+            content: '';
+            display: block;
+            height: 2px;
+            background: $aquaMarine;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform .2s ease-in-out;
+            }
+        
+            &:hover::after{
+            transform: scaleX(1);
+            transform-origin: left;
+            }
+        }
+    }
+
+    #credit_personal:target {
+    left: 5rem;
+    }
+    #credit_prendario:target {
+    left: 0;
+    }
+    #credit_hipotecario:target {
+    left: 0;
+    }
+    #credit_empresarial:target {
+    left: 0;
+    }
+
+    article {
+    display: flex;
+        justify-content: center;
+        align-items: center;
+    margin: 3rem 0;
+    position: absolute;
+    left: -100%;
+    transition: left 0.5s;
+
+        .txt {
+        font-size: 1.1rem;
+        max-width: 50rem;
+
+            p {
+            margin: .5rem 0;
+            }
+        }
+        .credit_img {
+            width: 30rem;
+        }
+    }
+}
+
+/*------------------- CONTACTO ------------------- */
+
+.contacto {
+background-color: $gray;
+padding: 3rem 0;
+text-align: center;
+
+    p {
+    font-size: 1.4rem;
+    }
+
+    div {
+    padding: 2rem 0 15rem 0;
+    display: flex;
+        justify-content: center;
+        align-items: center;
+
+        article {
+        display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        margin: 0 2rem;
+        padding: 1rem;
+        height: 22rem;
+        width: 24rem;
+        background-size: cover;
+        background-position: center;
+        transition: .5s;
+
+            &:hover {
+            transform: scale(1.05);
+            }
+
+            h2 {
+            max-width: 14rem;
+            }
+
+            img {
+            width: 7rem;
+            margin-top: 1.5rem;
+            }
+        }
+    }
+
+    .whatsapp {
+    background-image: url(images/background/blob4.svg);
+    }
+    .phone {
+    background-image: url(images/background/blob5.svg);
+    }
+    .email {
+    background-image: url(images/background/blob6.svg);
+    }
+
+}

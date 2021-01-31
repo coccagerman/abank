@@ -1,0 +1,60 @@
+/*------------------- FOOTER ------------------- */
+
+footer {
+background-color: black;
+color: white;
+
+
+    .footer_container {
+    margin-top: -6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+        .footer_logo {
+        width: 18rem;
+        }
+
+        .footer_nav_desktop, .footer_nav_mobile {
+        padding-top: 10.2rem;
+        margin-bottom: 3rem;
+        display: flex;
+            flex-direction: column;
+            justify-content: end;
+            
+            p {
+            font-size: 1.5rem;
+            }
+
+            a {
+            color: white;
+            margin: .3rem 0;
+            text-decoration: none;
+            transition: .5s;
+
+                &:hover {
+                color: $aquaMarine;
+                }
+            }
+        }
+
+        .footer_nav_mobile {
+        display: none;
+        }
+
+        .socialNetwork {
+        color: white;
+        font-size: 2rem;
+        margin: 0 .5rem;
+        transition: .5s;
+
+            &:hover {
+            color: $aquaMarine;
+            }
+        }
+
+        .usuariosFinancieros {
+        width: 15rem;
+        }
+    }
+}

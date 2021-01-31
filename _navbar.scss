@@ -1,0 +1,47 @@
+/*------------------- NAVBAR ------------------- */
+
+header {
+background-color: $blue;
+display: flex;
+  align-items: center;
+  justify-content: space-between;  
+
+  .icon {
+  display: none;
+  }
+
+  .header_logo {
+  width: 20rem;
+  margin-left: -25rem;
+  }
+
+  ul {
+  list-style: none;
+  margin-right: 2rem;
+  display: flex;
+    align-items: center;
+
+    a {
+    font-size: 1.25rem;
+    margin: 1.25rem;
+    text-decoration: none;
+    color: white;
+    font-family: 'Raleway', sans-serif;
+      
+      &::after{
+      content: '';
+      display: block;
+      height: 2px;
+      background: $aquaMarine;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform .2s ease-in-out;
+      }
+    
+      &:hover::after{
+      transform: scaleX(1);
+      transform-origin: left;
+      }
+    }
+  }
+}
