@@ -152,7 +152,7 @@ header ul a:hover::after {
 
 /*------------------- HERO ------------------- */
 .hero {
-  background-image: url(images/background/img_hero.jpg);
+  background-image: url(images/background/img_hero.webp);
   background-size: cover;
   background-position: 50% 40%;
   height: 90vh;
@@ -206,7 +206,7 @@ header ul a:hover::after {
 
 .nosotros .nosotros-img {
   width: 60%;
-  background-image: url(images/background/img_nosotros.jpg);
+  background-image: url(images/background/img_nosotros.webp);
   background-size: cover;
   background-position: 90% 50%;
   height: 100vh;
@@ -349,15 +349,15 @@ header ul a:hover::after {
 }
 
 .simulador #credit_prendario:target {
-  left: 0;
+  left: 5rem;
 }
 
 .simulador #credit_hipotecario:target {
-  left: 0;
+  left: 5rem;
 }
 
 .simulador #credit_empresarial:target {
-  left: 0;
+  left: 5rem;
 }
 
 .simulador article {
@@ -388,6 +388,13 @@ header ul a:hover::after {
 
 .simulador article .credit_img {
   width: 30rem;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.simulador article .credit_img:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
 }
 
 /*------------------- CONTACTO ------------------- */
