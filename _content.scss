@@ -191,8 +191,36 @@ height: 50rem;
             }
         }
     }
-
+    
 }
+
+form {
+    margin: 0 auto 15rem auto;
+    width: 28rem;
+    max-width: 1000px;
+    display: flex;
+        flex-direction: column;
+
+        label {
+        margin: 1rem 0 .5rem;
+        padding-left: .8rem;
+        }
+
+        input {
+        font-size: .9rem;
+        padding: .5rem 1rem;
+        border: 1px solid #424242;
+        border-radius: .8rem;
+        }
+
+        select {
+        font-size: .9rem;
+        padding: .5rem 1rem;
+        border: 1px solid #424242;
+        border-radius: .8rem;
+        }
+
+    }
 
 /*------------------- CONTACTO ------------------- */
 
