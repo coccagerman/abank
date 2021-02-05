@@ -89,6 +89,86 @@
         }
     }
 
+.simulador {
+    padding: 10rem 0;
+    
+        .simulador_nav {
+            h2 {
+            font-size: 2rem;
+            }
+
+            ul {
+            flex-wrap: wrap;
+            margin-top: 1rem;
+                a {
+                margin: .3rem 1rem;
+                }
+            }
+        }
+    
+        #credit_personal:target {
+        left: 0;
+        }
+        #credit_prendario:target {
+        left: 0;
+        }
+        #credit_hipotecario:target {
+        left: 0;
+        }
+        #credit_empresarial:target {
+        left: 0;
+        }
+    
+        article {
+        flex-direction: column;
+        padding: 0 1rem;
+        position: absolute;
+        left: -300%;
+        transition: left 0.5s;
+    
+            .txt {
+            font-size: 1.1rem;
+            max-width: 50rem;
+    
+                p {
+                margin: .5rem 0;
+                }
+            }
+            
+            .credit_img {
+            width: 20rem;
+            }
+        }
+    }
+    
+    form {
+        margin: 3rem auto 15rem auto;
+        width: 20rem;
+        max-width: 1000px;
+        display: flex;
+            flex-direction: column;
+    
+            label {
+            margin: 1rem 0 .5rem;
+            padding-left: .8rem;
+            }
+    
+            select {
+            font-size: .9rem;
+            padding: .5rem 1rem;
+            border: 1px solid $gray;
+            border-radius: .8rem;
+            }
+            
+            input {
+            font-size: .9rem;
+            padding: .5rem 1rem;
+            border: 1px solid $gray;
+            border-radius: .8rem;
+            margin-top: 2rem;
+            }
+        }
+
     .contacto {
         
         div {
