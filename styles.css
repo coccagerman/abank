@@ -211,13 +211,6 @@ header ul a:hover::after {
   background-size: cover;
   background-position: 90% 50%;
   height: 100vh;
-  -webkit-transition: .5s;
-  transition: .5s;
-}
-
-.nosotros .nosotros-img:hover {
-  -webkit-transform: scale(1.03);
-          transform: scale(1.03);
 }
 
 .nosotros .bottomWave {
@@ -488,7 +481,7 @@ form .calcular-btn {
           transform: scale(1.05);
 }
 
-.contacto div article h2 {
+.contacto div article p {
   max-width: 14rem;
 }
 
@@ -507,6 +500,13 @@ form .calcular-btn {
 
 .contacto .email {
   background-image: url(images/background/blob6.svg);
+}
+
+/*------------------- desafioDOM ------------------- */
+.desafioDOM {
+  margin: auto;
+  max-width: 50rem;
+  border: solid black;
 }
 
 /*------------------- FOOTER ------------------- */
