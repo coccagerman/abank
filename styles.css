@@ -218,18 +218,18 @@ header ul a:hover::after {
 }
 
 /*------------------- CRÉDITOS ------------------- */
-.creditos {
+.steps {
   background-color: #266FF5;
   text-align: center;
   padding: 3rem 0;
 }
 
-.creditos .txt {
+.steps .txt {
   color: white;
   font-size: 1.4rem;
 }
 
-.creditos div {
+.steps div {
   padding-top: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -242,7 +242,7 @@ header ul a:hover::after {
           align-items: center;
 }
 
-.creditos div article {
+.steps div article {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -266,40 +266,40 @@ header ul a:hover::after {
   transition: .5s;
 }
 
-.creditos div article:hover {
+.steps div article:hover {
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
 }
 
-.creditos div article img {
+.steps div article img {
   width: 7rem;
   margin-top: 1.5rem;
 }
 
-.creditos .step1 {
+.steps .step1 {
   background-image: url(images/background/blob1.svg);
 }
 
-.creditos .step2 {
+.steps .step2 {
   background-image: url(images/background/blob2.svg);
 }
 
-.creditos .step3 {
+.steps .step3 {
   background-image: url(images/background/blob3.svg);
 }
 
-/*------------------- SIMULADOR ------------------- */
-.simulador {
+/*------------------- CREDITOS ------------------- */
+.credits {
   padding: 15rem 0;
   height: 50rem;
 }
 
-.simulador .simulador_nav h2 {
+.credits .credits_nav h2 {
   text-align: center;
   font-size: 3rem;
 }
 
-.simulador .simulador_nav ul {
+.credits .credits_nav ul {
   list-style: none;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -312,7 +312,7 @@ header ul a:hover::after {
           justify-content: center;
 }
 
-.simulador .simulador_nav ul a {
+.credits .credits_nav ul a {
   font-size: 1.25rem;
   margin: 1.25rem;
   text-decoration: none;
@@ -320,7 +320,7 @@ header ul a:hover::after {
   font-family: 'Raleway', sans-serif;
 }
 
-.simulador .simulador_nav ul a::after {
+.credits .credits_nav ul a::after {
   content: '';
   display: block;
   height: 2px;
@@ -335,30 +335,30 @@ header ul a:hover::after {
   transition: transform .2s ease-in-out, -webkit-transform .2s ease-in-out;
 }
 
-.simulador .simulador_nav ul a:hover::after {
+.credits .credits_nav ul a:hover::after {
   -webkit-transform: scaleX(1);
           transform: scaleX(1);
   -webkit-transform-origin: left;
           transform-origin: left;
 }
 
-.simulador #credit_personal:target {
+.credits #credit_personal:target {
   left: 5rem;
 }
 
-.simulador #credit_prendario:target {
+.credits #credit_prendario:target {
   left: 5rem;
 }
 
-.simulador #credit_hipotecario:target {
+.credits #credit_hipotecario:target {
   left: 5rem;
 }
 
-.simulador #credit_empresarial:target {
+.credits #credit_empresarial:target {
   left: 5rem;
 }
 
-.simulador article {
+.credits article {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -375,27 +375,46 @@ header ul a:hover::after {
   transition: left 0.5s;
 }
 
-.simulador article .txt {
+.credits article .txt {
   font-size: 1.1rem;
   max-width: 50rem;
 }
 
-.simulador article .txt p {
+.credits article .txt p {
   margin: .5rem 0;
 }
 
-.simulador article .credit_img {
+.credits article .credit_img {
   width: 30rem;
   -webkit-transition: .5s;
   transition: .5s;
 }
 
-.simulador article .credit_img:hover {
+.credits article .credit_img:hover {
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
 }
 
-form {
+.simulator {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.simulator .simulator-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: auto;
+}
+
+.simulator .simulator-form p {
+  font-size: 2rem;
+  max-width: 20rem;
+  margin: 2rem 5rem 0 0;
+}
+
+.simulator .simulator-form form {
   margin: 0 auto 15rem auto;
   width: 28rem;
   max-width: 1000px;
@@ -408,24 +427,30 @@ form {
           flex-direction: column;
 }
 
-form label {
+.simulator .simulator-form form label {
   margin: 1rem 0 .5rem;
   padding-left: .8rem;
 }
 
-form select {
+.simulator .simulator-form form select {
   font-size: .9rem;
   padding: .5rem 1rem;
   border: 1px solid #d0cde1;
   border-radius: .8rem;
 }
 
-form .calcular-btn {
+.simulator .simulator-form form .calcular-btn {
   font-size: .9rem;
   padding: .5rem 1rem;
   border: 1px solid #d0cde1;
   border-radius: .8rem;
   margin-top: 2rem;
+}
+
+.simulator .simulator-form-response {
+  text-align: center;
+  max-width: 15rem;
+  display: none;
 }
 
 /*------------------- CONTACTO ------------------- */
