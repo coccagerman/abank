@@ -32,19 +32,24 @@ html {
 
 /*------------------- BUTTONS ------------------- */
 .btn {
-  border-radius: .25rem;
+  display: block;
+  border: none;
   text-decoration: none;
-  padding: 0.5rem;
   color: white;
-  -webkit-transition: background-color 0.35s ease-in;
-  transition: background-color 0.35s ease-in;
+  background-color: #266FF5;
+  text-align: center;
   font-family: 'Raleway', sans-serif;
+  font-size: 1.5rem;
+  border-radius: .5rem;
+  padding: 0.75rem;
+  margin: 1rem auto;
+  max-width: 18rem;
 }
 
 .btn::after {
   content: '';
   display: block;
-  height: 2px;
+  height: 3px;
   background: #44FFD4;
   -webkit-transform: scaleX(0);
           transform: scaleX(0);
@@ -61,6 +66,13 @@ html {
           transform: scaleX(1);
   -webkit-transform-origin: left;
           transform-origin: left;
+}
+
+.btn-grey {
+  color: black;
+  background-color: #d0cde1;
+  max-width: 15rem;
+  font-size: 1.25rem;
 }
 
 /*------------------- SVG ------------------- */
@@ -386,6 +398,7 @@ header ul a:hover::after {
 
 .credits article .credit_img {
   width: 30rem;
+  border-radius: .25rem;
   -webkit-transition: .5s;
   transition: .5s;
 }
@@ -395,6 +408,7 @@ header ul a:hover::after {
           transform: scale(1.05);
 }
 
+/*------------------- SIMULADOR ------------------- */
 .simulator {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -405,17 +419,16 @@ header ul a:hover::after {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: auto;
+  margin: 0 auto 15rem auto;
 }
 
 .simulator .simulator-form p {
   font-size: 2rem;
   max-width: 20rem;
-  margin: 2rem 5rem 0 0;
+  margin: 0 5rem 0 0;
 }
 
 .simulator .simulator-form form {
-  margin: 0 auto 15rem auto;
   width: 28rem;
   max-width: 1000px;
   display: -webkit-box;
@@ -428,43 +441,141 @@ header ul a:hover::after {
 }
 
 .simulator .simulator-form form label {
-  margin: 1rem 0 .5rem;
+  margin: 1rem 0 .5rem 0;
   padding-left: .8rem;
 }
 
-.simulator .simulator-form form select {
+.simulator .simulator-form form select, .simulator .simulator-form form input {
   font-size: .9rem;
   padding: .5rem 1rem;
   border: 1px solid #d0cde1;
   border-radius: .8rem;
 }
 
-.simulator .simulator-form form .calcular-btn {
-  font-size: .9rem;
-  padding: .5rem 1rem;
-  border: 1px solid #d0cde1;
-  border-radius: .8rem;
+.simulator .simulator-form form .btn {
   margin-top: 2rem;
 }
 
 .simulator .simulator-form-response {
   text-align: center;
-  max-width: 15rem;
-  display: none;
+  font-size: 2rem;
+  position: absolute;
+  left: -200%;
+  -webkit-transition: left 0.5s;
+  transition: left 0.5s;
+}
+
+.simulator .contact-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  right: -100%;
+  -webkit-transition: left 0.5s;
+  transition: left 0.5s;
+  margin: 0 auto 15rem auto;
+}
+
+.simulator .contact-form p {
+  font-size: 2rem;
+  max-width: 20rem;
+  margin: 0 5rem 0 0;
+}
+
+.simulator .contact-form form {
+  width: 28rem;
+  max-width: 1000px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.simulator .contact-form form label {
+  font-size: 1.25rem;
+}
+
+.simulator .contact-form form input {
+  margin: .5rem 0 1rem 0;
+  padding-left: .8rem;
+  font-size: 1rem;
+  padding: .5rem 1rem;
+  border: 1px solid #d0cde1;
+  border-radius: .8rem;
+}
+
+.simulator .contact-form form .btn {
+  width: 15rem;
+}
+
+.simulator .contact-form form .btn-grey {
+  width: 12rem;
+}
+
+.simulator .contact-form-response {
+  text-align: center;
+  font-size: 2rem;
+  max-width: 50rem;
+  margin: 0 auto 15rem auto;
+  display: block;
+  position: absolute;
+  right: -100%;
+  -webkit-transition: left 0.5s;
+  transition: left 0.5s;
+}
+
+.simulator .contact-form-response div {
+  margin-bottom: 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.simulator .contact-form-response div img {
+  width: 20rem;
+  margin: 2rem 4rem 0 0;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.simulator .contact-form-response div img:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+.activeElement {
+  position: absolute;
+  left: 20%;
+  max-width: 40rem;
+  margin: 0 auto 15rem auto;
+}
+
+.hiddenElement {
+  position: absolute;
+  left: -600%;
 }
 
 /*------------------- CONTACTO ------------------- */
-.contacto {
+.contact {
   background-color: #d0cde1;
   padding: 3rem 0;
   text-align: center;
 }
 
-.contacto p {
+.contact p {
   font-size: 1.4rem;
 }
 
-.contacto div {
+.contact div {
   padding: 2rem 0 15rem 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -477,7 +588,7 @@ header ul a:hover::after {
           align-items: center;
 }
 
-.contacto div article {
+.contact div article {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -501,37 +612,30 @@ header ul a:hover::after {
   transition: .5s;
 }
 
-.contacto div article:hover {
+.contact div article:hover {
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
 }
 
-.contacto div article p {
+.contact div article p {
   max-width: 14rem;
 }
 
-.contacto div article img {
+.contact div article img {
   width: 7rem;
   margin-top: 1.5rem;
 }
 
-.contacto .whatsapp {
+.contact .whatsapp {
   background-image: url(images/background/blob4.svg);
 }
 
-.contacto .phone {
+.contact .phone {
   background-image: url(images/background/blob5.svg);
 }
 
-.contacto .email {
+.contact .email {
   background-image: url(images/background/blob6.svg);
-}
-
-/*------------------- desafioDOM ------------------- */
-.desafioDOM {
-  margin: auto;
-  max-width: 50rem;
-  border: solid black;
 }
 
 /*------------------- FOOTER ------------------- */

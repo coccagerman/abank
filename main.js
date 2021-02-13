@@ -86,3 +86,35 @@
 
 // elemento.appendChild(texto);
 // document.getElementById("calculateCredit").appendChild(elemento);
+
+
+// // ----------------------- SIMULADOR -----------------------
+// // ----------------------- SIMULADOR - FORM -----------------------
+
+
+// function populateSimulatorForm (tipoCredito) {
+
+//     if (tipoCredito == "Personal") {
+// 		var arrayCuotas = ["6|6 cuotas","12|12 cuotas","18|18 cuotas"];
+
+// 	} else if (tipoCredito == "Prendario") {
+// 		var arrayCuotas = ["12|12 cuotas","24|24 cuotas","36|36 cuotas"];
+
+// 	} else if (tipoCredito == "Hipotecario") {
+// 		var arrayCuotas = ["60|60 cuotas","120|120 cuotas","180|180 cuotas"];
+
+// 	} else {
+// 		var arrayCuotas = ["6|6 cuotas","24|24 cuotas","48|48 cuotas", "60|60 cuotas"];
+// 	}
+
+//     for (var option in arrayCuotas){
+// 		var pair = arrayCuotas[option].split("|");
+// 		var newOption = document.createElement("option");
+// 		newOption.value = pair[0];
+// 		newOption.innerHTML = pair[1];
+// 	}
+
+//     console.log(newOption)
+// }
+
+document.getElementById("btn-calcularCuotas").onclick = calcularCuotas;

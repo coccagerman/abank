@@ -184,6 +184,7 @@ height: 50rem;
         
         .credit_img {
         width: 30rem;
+        border-radius: .25rem;
         transition: .5s;
 
             &:hover {
@@ -194,43 +195,40 @@ height: 50rem;
     
 }
 
+/*------------------- SIMULADOR ------------------- */
+
 .simulator {
 display: flex;
-
+    
     .simulator-form {
     display: flex;
-    margin: auto;
+    margin: 0 auto 15rem auto;
 
         p {
         font-size: 2rem;
         max-width: 20rem;
-        margin: 2rem 5rem 0 0 ;
+        margin: 0 5rem 0 0 ;
         }
 
         form {
-        margin: 0 auto 15rem auto;
         width: 28rem;
         max-width: 1000px;
         display: flex;
             flex-direction: column;
 
             label {
-            margin: 1rem 0 .5rem;
+            margin: 1rem 0 .5rem 0;
             padding-left: .8rem;
             }
 
-            select {
+            select, input {
             font-size: .9rem;
             padding: .5rem 1rem;
             border: 1px solid $gray;
             border-radius: .8rem;
             }
 
-            .calcular-btn {
-            font-size: .9rem;
-            padding: .5rem 1rem;
-            border: 1px solid $gray;
-            border-radius: .8rem;
+            .btn {
             margin-top: 2rem;
             }
         }
@@ -238,19 +236,101 @@ display: flex;
 
     .simulator-form-response {
     text-align: center;
-    max-width: 15rem;
-    display: none;
+    font-size: 2rem;
+    position: absolute;
+    left: -200%;
+    transition: left 0.5s;
     }
 
-    .contact-form {}
+    .contact-form {
+    display: flex;
+    position: absolute;
+    right: -100%;
+    transition: left 0.5s;
+    margin: 0 auto 15rem auto;
 
-    .contact-form-response {}
+        p {
+        font-size: 2rem;
+        max-width: 20rem;
+        margin: 0 5rem 0 0 ;
+        }
 
+        form {
+        width: 28rem;
+        max-width: 1000px;
+        display: flex;
+            flex-direction: column;
+
+            label {
+            font-size: 1.25rem;
+            
+            }
+
+            input {
+            margin: .5rem 0 1rem 0;
+            padding-left: .8rem;
+            font-size: 1rem;
+            padding: .5rem 1rem;
+            border: 1px solid $gray;
+            border-radius: .8rem;
+            }
+
+            .btn {
+            width: 15rem;
+            }
+
+            .btn-grey {
+            width: 12rem;
+            }
+        }
+    }
+
+    .contact-form-response {
+    text-align: center;
+    font-size: 2rem;
+    max-width: 50rem;
+    margin: 0 auto 15rem auto;
+    display: block;
+    position: absolute;
+    right: -100%;
+    transition: left 0.5s;
+        
+        div {
+        margin-bottom: 3rem;
+        display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+            width: 20rem;
+            margin: 2rem 4rem 0 0;
+            transition: .5s;
+
+                &:hover {
+                transform: scale(1.05);
+                }
+            }
+        }
+    }
 }
+
+.activeElement {
+    position: absolute;
+    left: 20%;
+    max-width: 40rem;
+    margin: 0 auto 15rem auto;
+}
+
+.hiddenElement {
+    position: absolute;
+    left: -600%;
+}
+
+
 
 /*------------------- CONTACTO ------------------- */
 
-.contacto {
+.contact {
 background-color: $gray;
 padding: 3rem 0;
 text-align: center;
@@ -303,12 +383,4 @@ text-align: center;
     background-image: url(images/background/blob6.svg);
     }
 
-}
-
-/*------------------- desafioDOM ------------------- */
-
-.desafioDOM {
-    margin: auto;
-    max-width: 50rem;
-    border: solid black;
 }

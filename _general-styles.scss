@@ -35,17 +35,23 @@ font-size: 3rem;
 /*------------------- BUTTONS ------------------- */
 
 .btn {
-border-radius: .25rem;
+display: block;
+border: none;
 text-decoration: none;
-padding: 0.5rem;
 color: white;
-transition: background-color 0.35s ease-in;
+background-color: $blue;
+text-align: center;
 font-family: 'Raleway', sans-serif;
+font-size: 1.5rem;
+border-radius: .5rem;
+padding: 0.75rem;
+margin: 1rem auto;
+max-width: 18rem;
 
     &::after{
     content: '';
     display: block;
-    height: 2px;
+    height: 3px;
     background: #44FFD4;
     transform: scaleX(0);
     transform-origin: right;
@@ -56,6 +62,13 @@ font-family: 'Raleway', sans-serif;
     transform: scaleX(1);
     transform-origin: left;
     }
+}
+
+.btn-grey {
+color: black;
+background-color: $gray;
+max-width: 15rem;
+font-size: 1.25rem;
 }
 
 /*------------------- SVG ------------------- */
