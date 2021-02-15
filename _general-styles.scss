@@ -96,3 +96,17 @@ left: 0;
 position: relative;
 overflow: hidden;
 }
+
+/*------------------- SLIDING ELEMENTS (For credits and simulator sections) ------------------- */
+
+.activeElement {
+    position: absolute;
+    left: 20%;
+    transition: left 1.5s;
+}
+
+.hiddenElement {
+    position: absolute;
+    left: -600%;
+    transition: left 1.5s;
+}

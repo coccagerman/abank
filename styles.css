@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /*------------------- RESET ------------------- */
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
@@ -97,6 +96,21 @@ svg {
 .container {
   position: relative;
   overflow: hidden;
+}
+
+/*------------------- SLIDING ELEMENTS (For credits and simulator sections) ------------------- */
+.activeElement {
+  position: absolute;
+  left: 20%;
+  -webkit-transition: left 1.5s;
+  transition: left 1.5s;
+}
+
+.hiddenElement {
+  position: absolute;
+  left: -600%;
+  -webkit-transition: left 1.5s;
+  transition: left 1.5s;
 }
 
 /*------------------- NAVBAR ------------------- */
@@ -229,7 +243,7 @@ header ul a:hover::after {
   z-index: 3;
 }
 
-/*------------------- CRÉDITOS ------------------- */
+/*------------------- STEPS ------------------- */
 .steps {
   background-color: #266FF5;
   text-align: center;
@@ -381,10 +395,6 @@ header ul a:hover::after {
       -ms-flex-align: center;
           align-items: center;
   margin: 3rem 0;
-  position: absolute;
-  left: -100%;
-  -webkit-transition: left 0.5s;
-  transition: left 0.5s;
 }
 
 .credits article .txt {
@@ -410,25 +420,30 @@ header ul a:hover::after {
 
 /*------------------- SIMULADOR ------------------- */
 .simulator {
+  height: 50rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.simulator .simulator-form {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+.simulator .simulator > * {
   margin: 0 auto 15rem auto;
+  padding-top: 2rem;
 }
 
-.simulator .simulator-form p {
+.simulator #simulator-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.simulator #simulator-form p {
   font-size: 2rem;
   max-width: 20rem;
   margin: 0 5rem 0 0;
 }
 
-.simulator .simulator-form form {
+.simulator #simulator-form form {
   width: 28rem;
   max-width: 1000px;
   display: -webkit-box;
@@ -440,49 +455,41 @@ header ul a:hover::after {
           flex-direction: column;
 }
 
-.simulator .simulator-form form label {
+.simulator #simulator-form form label {
   margin: 1rem 0 .5rem 0;
   padding-left: .8rem;
 }
 
-.simulator .simulator-form form select, .simulator .simulator-form form input {
+.simulator #simulator-form form select, .simulator #simulator-form form input {
   font-size: .9rem;
   padding: .5rem 1rem;
   border: 1px solid #d0cde1;
   border-radius: .8rem;
 }
 
-.simulator .simulator-form form .btn {
+.simulator #simulator-form form .btn {
   margin-top: 2rem;
 }
 
-.simulator .simulator-form-response {
+.simulator #simulator-form-response {
   text-align: center;
   font-size: 2rem;
-  position: absolute;
-  left: -200%;
-  -webkit-transition: left 0.5s;
-  transition: left 0.5s;
+  max-width: 50rem;
 }
 
-.simulator .contact-form {
+.simulator #contact-form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  position: absolute;
-  right: -100%;
-  -webkit-transition: left 0.5s;
-  transition: left 0.5s;
-  margin: 0 auto 15rem auto;
 }
 
-.simulator .contact-form p {
+.simulator #contact-form p {
   font-size: 2rem;
   max-width: 20rem;
   margin: 0 5rem 0 0;
 }
 
-.simulator .contact-form form {
+.simulator #contact-form form {
   width: 28rem;
   max-width: 1000px;
   display: -webkit-box;
@@ -494,11 +501,11 @@ header ul a:hover::after {
           flex-direction: column;
 }
 
-.simulator .contact-form form label {
+.simulator #contact-form form label {
   font-size: 1.25rem;
 }
 
-.simulator .contact-form form input {
+.simulator #contact-form form input {
   margin: .5rem 0 1rem 0;
   padding-left: .8rem;
   font-size: 1rem;
@@ -507,27 +514,21 @@ header ul a:hover::after {
   border-radius: .8rem;
 }
 
-.simulator .contact-form form .btn {
+.simulator #contact-form form .btn {
   width: 15rem;
 }
 
-.simulator .contact-form form .btn-grey {
+.simulator #contact-form form .btn-grey {
   width: 12rem;
 }
 
-.simulator .contact-form-response {
+.simulator #contact-form-response {
   text-align: center;
   font-size: 2rem;
   max-width: 50rem;
-  margin: 0 auto 15rem auto;
-  display: block;
-  position: absolute;
-  right: -100%;
-  -webkit-transition: left 0.5s;
-  transition: left 0.5s;
 }
 
-.simulator .contact-form-response div {
+.simulator #contact-form-response div {
   margin-bottom: 3rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -540,28 +541,16 @@ header ul a:hover::after {
           align-items: center;
 }
 
-.simulator .contact-form-response div img {
+.simulator #contact-form-response div img {
   width: 20rem;
-  margin: 2rem 4rem 0 0;
+  margin: 0 4rem 0 0;
   -webkit-transition: .5s;
   transition: .5s;
 }
 
-.simulator .contact-form-response div img:hover {
+.simulator #contact-form-response div img:hover {
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
-}
-
-.activeElement {
-  position: absolute;
-  left: 20%;
-  max-width: 40rem;
-  margin: 0 auto 15rem auto;
-}
-
-.hiddenElement {
-  position: absolute;
-  left: -600%;
 }
 
 /*------------------- CONTACTO ------------------- */

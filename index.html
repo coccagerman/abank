@@ -96,16 +96,16 @@
         <nav class="credits_nav">
             <h2>Elegí tu crédito</h2>
             <ul>
-                <a href="#credit_personal"><li>Personal</li></a>
-                <a href="#credit_prendario"><li>Prendario</li></a>
-                <a href="#credit_hipotecario"><li>Hipotecario</li></a>
-                <a href="#credit_empresarial"><li>Empresarial</li></a>
+                <a href="#credit_personal" id="btn-credit_personal"><li>Personal</li></a>
+                <a href="#credit_prendario" id="btn-credit_prendario"><li>Prendario</li></a>
+                <a href="#credit_hipotecario" id="btn-credit_hipotecario"><li>Hipotecario</li></a>
+                <a href="#credit_empresarial" id="btn-credit_empresarial"><li>Empresarial</li></a>
             </ul>
 
         </nav>
 
         <div>
-            <article id="credit_personal">
+            <article id="credit_personal" class="activeElement">
                 <div class="txt">
                     <h2>Crédito personal</h2>
                     <p>Viajá, remodelá tu casa, date el gusto que venías buscando. Cumplí tus sueños con el crédito personal de Abank.</p>
@@ -117,7 +117,7 @@
                     <img src="images/personal.png" alt="Dos personas de viaje." class="credit_img">
                 </div>
             </article>
-            <article id="credit_prendario">
+            <article id="credit_prendario" class="hiddenElement">
                 <div class="txt">
                     <h2>Crédito prendario</h2>
                     <p>No esperes más. Comprá tu nuevo auto con el crédito prendario de Abank y lanzá tus sueños sobre ruedas.</p>
@@ -129,7 +129,7 @@
                     <img src="images/prendario.png" alt="Dos personas en un auto." class="credit_img">
                 </div>
             </article>
-            <article id="credit_hipotecario">
+            <article id="credit_hipotecario" class="hiddenElement">
                 <div class="txt">
                     <h2>Crédito hipotecario</h2>
                     <p>Estás buscando comprar tu primer casa o departamento? No estás solo. Abank te acompaña para que puedas cumplir este sueño también!</p>
@@ -141,7 +141,7 @@
                     <img src="images/hipotecario.png" alt="Dos personas en una casa nueva." class="credit_img">
                 </div>
             </article>
-            <article id="credit_empresarial">
+            <article id="credit_empresarial" class="hiddenElement">
                 <div class="txt">
                     <h2>Crédito empresarial</h2>
                     <p>El espíritu emprendedor está en el centro de nuestra cultura. Si sos emprendedor, contá con nosotros. Concentrate en cumplir tus sueños, nosotros te cubrimos.</p>
@@ -160,12 +160,12 @@
 
     <section class="container simulator" id="simulator">
         
-        <article class="simulator-form" id="simulator-form">
+        <article class="simulator-form activeElement" id="simulator-form">
             <p>Utilizá nuestro simulador de créditos para conocer los montos disponibles según tu nivel de ingresos y los costos de las cuotas.</p>
             
             <form action="#" method="get">
                 <label for="tipoCredito">Tipo de crédito</label>
-                <select id="tipoCredito" onchange='populateSimulatorForm(document.getElementById("tipoCredito").value)'>
+                <select id="tipoCredito">
                     <option value="Personal">Personal</option>
                     <option value="Prendario">Prendario</option>
                     <option value="Hipotecario">Hipotecario</option>
@@ -190,19 +190,19 @@
                     <option value="+$75.0000">Más de $75.0000</option>
                 </select>
 
-                <!-- <a href="" class="btn" id="btn-calcularCuotas">Calcular cuotas</a> -->
-                <input type="submit" value="Calcular cuotas" class="btn" id="btn-calcularCuotas">
+                <a href="#" class="btn" id="btn-calcularCuotas">Calcular cuotas</a>
+                <!-- <input type="submit" value="Calcular cuotas" class="btn" id="btn-calcularCuotas"> -->
 
             </form>
       </article>
 
-        <article class="simulator-form-response" id="simulator-form-response">
+        <article class="simulator-form-response hiddenElement" id="simulator-form-response">
             <p>Hola Germán: Para solicitar Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, inventore! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, eum.</p>
-            <a href="#" class="btn">Solicitar crédito</a>
-            <a href="#" class="btn btn-grey" id="btn-volverSimular">Volver a simular</a>
+            <a href="#" class="btn" id="btn-contact-form">Solicitar crédito</a>
+            <a href="#" class="btn btn-grey" id="btn-volverSimular_from_simulatorResponse">Volver a simular</a>
         </article>
 
-        <article class="contact-form">
+        <article class="contact-form hiddenElement" id="contact-form">
             
             <p>Completá los siguientes datos y nos comunicaremos a la brevedad para adjudicar tu crédito.</p>
 
@@ -216,8 +216,8 @@
                 <label for="email">Email</label>
                 <input type="email" placeholder="Email" id="email">
 
-                <a href="#" class="btn">Enviar</a>
-                <a href="#" class="btn btn-grey">Volver a simular</a>
+                <a href="#" class="btn" id="btn-enviar-contact-form">Enviar</a>
+                <a href="#" class="btn btn-grey" id="btn-volverSimular_from_contactForm">Volver a simular</a>
 
                 <!-- <input type="submit" href="#" value="Enviar" class="btn"> -->
 
@@ -225,13 +225,13 @@
 
         </article>
 
-        <article class="contact-form-response">
+        <article class="contact-form-response hiddenElement" id="contact-form-response">
             <div>
                 <img src="images/icons/complete.png" alt="Ícono de completo.">
                 <p>Gracias Germán! A la brevedad nos comunicaremos con vos para adjudicar tu crédito.</p>
             </div>
-            <a href="#" class="btn">Ver historial de créditos cotizados</a>
-            <a href="#" class="btn btn-grey">Volver a simular</a>
+            <a href="#" class="btn" id="btn-creditHistory">Ver historial de créditos cotizados</a>
+            <a href="#" class="btn btn-grey" id="btn-volverSimular_from_contactFormResponse">Volver a simular</a>
         </article>
 
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 250" class="bottomWave"><path fill="#d0cde1" fill-opacity="1" d="M0,0L30,10.7C60,21,120,43,180,85.3C240,128,300,192,360,192C420,192,480,128,540,101.3C600,75,660,85,720,96C780,107,840,117,900,149.3C960,181,1020,235,1080,240C1140,245,1200,203,1260,176C1320,149,1380,139,1410,133.3L1440,128L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z"></path></svg>
