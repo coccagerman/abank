@@ -346,7 +346,11 @@ header ul a:hover::after {
   font-family: 'Raleway', sans-serif;
 }
 
-.credits .credits_nav ul a::after {
+.credits .credits_nav ul .active {
+  border-bottom: 2px solid #44FFD4;
+}
+
+.credits .credits_nav ul .inactive::after {
   content: '';
   display: block;
   height: 2px;
@@ -361,27 +365,11 @@ header ul a:hover::after {
   transition: transform .2s ease-in-out, -webkit-transform .2s ease-in-out;
 }
 
-.credits .credits_nav ul a:hover::after {
+.credits .credits_nav ul .inactive:hover::after {
   -webkit-transform: scaleX(1);
           transform: scaleX(1);
   -webkit-transform-origin: left;
           transform-origin: left;
-}
-
-.credits #credit_personal:target {
-  left: 5rem;
-}
-
-.credits #credit_prendario:target {
-  left: 5rem;
-}
-
-.credits #credit_hipotecario:target {
-  left: 5rem;
-}
-
-.credits #credit_empresarial:target {
-  left: 5rem;
 }
 
 .credits article {
@@ -394,12 +382,12 @@ header ul a:hover::after {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 3rem 0;
+  margin: 3rem 0 3rem -8rem;
 }
 
 .credits article .txt {
   font-size: 1.1rem;
-  max-width: 50rem;
+  max-width: 40rem;
 }
 
 .credits article .txt p {
@@ -522,6 +510,10 @@ header ul a:hover::after {
   width: 12rem;
 }
 
+.simulator #contact-form form .creditDetails {
+  font-size: 1rem;
+}
+
 .simulator #contact-form-response {
   text-align: center;
   font-size: 2rem;
@@ -551,6 +543,18 @@ header ul a:hover::after {
 .simulator #contact-form-response div img:hover {
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
+}
+
+.simulator #credit-history .credit-history_table {
+  text-align: center;
+  margin: 3rem auto 2rem auto;
+}
+
+.simulator #credit-history .credit-history_table th {
+  color: white;
+  background: #266FF5;
+  padding: 1rem 4rem;
+  border-radius: 1rem;
 }
 
 /*------------------- CONTACTO ------------------- */

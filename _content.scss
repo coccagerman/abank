@@ -133,7 +133,13 @@ height: 50rem;
             text-decoration: none;
             color: $blue;
             font-family: 'Raleway', sans-serif;
-            
+            }
+
+            .active {
+            border-bottom: 2px solid $aquaMarine;
+            }
+
+            .inactive {
                 &::after{
                 content: '';
                 display: block;
@@ -152,28 +158,15 @@ height: 50rem;
         }
     }
 
-    #credit_personal:target {
-    left: 5rem;
-    }
-    #credit_prendario:target {
-    left: 5rem;
-    }
-    #credit_hipotecario:target {
-    left: 5rem;
-    }
-    #credit_empresarial:target {
-    left: 5rem;
-    }
-
     article {
     display: flex;
         justify-content: center;
         align-items: center;
-    margin: 3rem 0;
+    margin: 3rem 0 3rem -8rem;
 
         .txt {
         font-size: 1.1rem;
-        max-width: 50rem;
+        max-width: 40rem;
             p {
             margin: .5rem 0;
             }
@@ -277,6 +270,10 @@ display: flex;
             .btn-grey {
             width: 12rem;
             }
+
+            .creditDetails {
+            font-size: 1rem;
+            }
         }
     }
 
@@ -299,6 +296,21 @@ display: flex;
                 &:hover {
                 transform: scale(1.05);
                 }
+            }
+        }
+    }
+
+    #credit-history {
+
+        .credit-history_table {
+        text-align: center;
+        margin: 3rem auto 2rem auto;
+
+            th {
+            color: white;
+            background: $blue;
+            padding: 1rem 4rem;
+            border-radius: 1rem;
             }
         }
     }
