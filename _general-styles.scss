@@ -65,10 +65,18 @@ max-width: 18rem;
 }
 
 .btn-grey {
+@extend .btn;
 color: black;
 background-color: $gray;
 max-width: 15rem;
 font-size: 1.25rem;
+}
+
+.btn-disabled {
+@extend .btn;
+background-color: black;
+color: $gray;
+pointer-events: none;
 }
 
 /*------------------- SVG ------------------- */
@@ -100,13 +108,23 @@ overflow: hidden;
 /*------------------- SLIDING ELEMENTS (For credits and simulator sections) ------------------- */
 
 .activeElement {
-    position: absolute;
-    left: 20%;
-    transition: left 1.5s;
+position: absolute;
+left: 20%;
+transition: left 1.5s;
 }
 
 .hiddenElement {
-    position: absolute;
-    left: -600%;
-    transition: left 1.5s;
+position: absolute;
+left: -600%;
+transition: left 1.5s;
+}
+
+/*------------------- DISPLAY NONE / DISPLAY BLOCK ------------------- */
+
+.displayNone {
+display: none;
+}
+
+.displayBlock {
+display: block;
 }

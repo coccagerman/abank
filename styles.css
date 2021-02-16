@@ -30,7 +30,7 @@ html {
 }
 
 /*------------------- BUTTONS ------------------- */
-.btn {
+.btn, .btn-grey, .btn-disabled {
   display: block;
   border: none;
   text-decoration: none;
@@ -45,7 +45,7 @@ html {
   max-width: 18rem;
 }
 
-.btn::after {
+.btn::after, .btn-grey::after, .btn-disabled::after {
   content: '';
   display: block;
   height: 3px;
@@ -60,7 +60,7 @@ html {
   transition: transform .2s ease-in-out, -webkit-transform .2s ease-in-out;
 }
 
-.btn:hover::after {
+.btn:hover::after, .btn-grey:hover::after, .btn-disabled:hover::after {
   -webkit-transform: scaleX(1);
           transform: scaleX(1);
   -webkit-transform-origin: left;
@@ -72,6 +72,12 @@ html {
   background-color: #d0cde1;
   max-width: 15rem;
   font-size: 1.25rem;
+}
+
+.btn-disabled {
+  background-color: black;
+  color: #d0cde1;
+  pointer-events: none;
 }
 
 /*------------------- SVG ------------------- */
@@ -111,6 +117,15 @@ svg {
   left: -600%;
   -webkit-transition: left 1.5s;
   transition: left 1.5s;
+}
+
+/*------------------- DISPLAY NONE / DISPLAY BLOCK ------------------- */
+.displayNone {
+  display: none;
+}
+
+.displayBlock {
+  display: block;
 }
 
 /*------------------- NAVBAR ------------------- */
@@ -455,7 +470,7 @@ header ul a:hover::after {
   border-radius: .8rem;
 }
 
-.simulator #simulator-form form .btn {
+.simulator #simulator-form form .btn, .simulator #simulator-form form .btn-grey, .simulator #simulator-form form .btn-disabled {
   margin-top: 2rem;
 }
 
@@ -502,7 +517,7 @@ header ul a:hover::after {
   border-radius: .8rem;
 }
 
-.simulator #contact-form form .btn {
+.simulator #contact-form form .btn, .simulator #contact-form form .btn-grey, .simulator #contact-form form .btn-disabled {
   width: 15rem;
 }
 

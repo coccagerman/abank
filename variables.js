@@ -3,4 +3,4 @@ var monto
 var cantidadCuotas
 var tasaInteres
 var valorCuotas
-
+var ingresosNetos

@@ -71,7 +71,11 @@ document.getElementById("btn-volverSimular_from_contactFormResponse").onclick = 
 document.getElementById("btn-volverSimular_from_creditHistory").onclick = simularDeNuevo_from_creditHistory;
 
 
-// ----------------------- SIMULADOR - FORM - Modificar cantidad de cuotas según tipo de crédito seleccionado -----------------------
+// ----------------------- SIMULADOR - FORM ------------------------ Modificar cantidad de cuotas según tipo de crédito seleccionado y el monto disponible según el nivel de ingresos declarado
+
+document.getElementById("tipoCredito").addEventListener("change", adjustFormtOptions)
+document.getElementById("ingresosNetos").addEventListener("change", adjustFormtOptions)
+document.addEventListener("DOMContentLoaded", adjustFormtOptions) // Para que figuren opciones apenas cargue el sitio, sin que la selección necesariamente cambie
 
 // ----------------------- SIMULADOR - FORM RESPONSE - Tomar datos del form y utilizarlos para dar respuesta en string
 
