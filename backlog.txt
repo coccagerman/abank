@@ -1,0 +1,26 @@
+- Cambiar clases y IDs a inglés
+- Resumir CSS y JS
+
+Eventos:
+- Botón animado para navbar mobile
+- Animación para carga del sitio
+
+Simulador:
+- Agregar un modal que aparezca en hover sobre cada opción, con mensaje explicativo de qué completar.
+- El botón de avanzar debe estar bloqueado hasta que se complete el monto a solicitar con un monto correcto.
+- Vincular botón enter para que avance el formulario.
+
+Respuesta simulador:
+- El formulario de simulación debe reiniciarse cada vez que se vuelva a él.
+- Vincular botón scape o delete para que vuelva al formulario de simulación.
+
+Formulario de contacto:
+- El mensaje con la data del crédito debiese figurar con espacios entre línea.
+- Debe chequear que los datos ingresados cumplan con lo solicitado (nombre, teléfono y mail)
+- Si no se completan los datos, o son erróneos, no te debe dejar avanzar y debe arrojar mensaje de error.
+
+
+Historial:
+- Sería interesante sumar un botón para que se pueda cancelar la cotización. Si se clickea, mostrar mensaje de "cotización cancelada", y cuando se vueva al historial ya no debiese figurar ese registro.
+
+// // ----------------------- Unificar función de volver a simular para utilizarla a través de todos los pasos del simulador

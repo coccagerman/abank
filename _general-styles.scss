@@ -79,6 +79,12 @@ color: $gray;
 pointer-events: none;
 }
 
+// pensar cómo unificar clases .btn-disabled y .isDesabled
+
+.isDesabled {
+pointer-events: none;
+}
+
 /*------------------- SVG ------------------- */
 
 svg {

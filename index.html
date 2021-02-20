@@ -14,14 +14,14 @@
 
     <header>
         <a href="#menu">
-            <img src="images/icons/menu_open.png" alt="Open menu" class="icon open">
+            <img src="images/icons/menu_open.png" alt="Open menu" class="icon open" loading="lazy">
         </a>
 
-        <a href="index.html"><img src="images/logos/logo_blue.png" alt="Logo de la empresa" class="header_logo"></a>
+        <a href="index.html"><img src="images/logos/logo_blue.png" alt="Logo de la empresa" class="header_logo" loading="lazy"></a>
 
         <nav id="menu">
             <a href="#">
-                <img src="images/icons/menu_close.png" alt="Close menu" class="icon close">
+                <img src="images/icons/menu_close.png" alt="Close menu" class="icon close" loading="lazy">
             </a>
 
             <ul>
@@ -74,15 +74,15 @@
     <div>
         <article class="step1">
             <h2>Elegí tu crédito</h2>
-            <img src="images/icons/choice.png" alt="Ícono de opción.">
+            <img src="images/icons/choice.png" alt="Ícono de opción." loading="lazy">
         </article>
         <article class="step2">
             <h2>Simulá tus cuotas</h2>
-            <img src="images/icons/calculate.png" alt="Ícono de calculadora.">
+            <img src="images/icons/calculate.png" alt="Ícono de calculadora." loading="lazy">
         </article>
         <article class="step3">
             <h2>Contactanos</h2>
-            <img src="images/icons/contact.png" alt="Ícono de contacto.">
+            <img src="images/icons/contact.png" alt="Ícono de contacto." loading="lazy">
         </article>
     </div>
 
@@ -110,10 +110,10 @@
                     <p>Viajá, remodelá tu casa, date el gusto que venías buscando. Cumplí tus sueños con el crédito personal de Abank.</p>
                     <p>Montos disponibles: $100.000 - $1.000.000</p>
                     <p>Plazo de devolución: 6 - 18 meses</p>
-                    <p>Tasa de interés: 65% anual</p>
+                    <p>Tasa de interés: 65%</p>
                 </div>
                 <div>
-                    <img src="images/personal.png" alt="Dos personas de viaje." class="credit_img">
+                    <img src="images/personal.png" alt="Dos personas de viaje." class="credit_img" loading="lazy">
                 </div>
             </article>
             <article id="credit_prendario" class="hiddenElement">
@@ -122,10 +122,10 @@
                     <p>No esperes más. Comprá tu nuevo auto con el crédito prendario de Abank y lanzá tus sueños sobre ruedas.</p>
                     <p><div>Montos disponibles:</div> $500.000 - $2.000.000</p>
                     <p>Plazo de devolución: 12 - 36 meses</p>
-                    <p>Tasa de interés: 60% anual</p>
+                    <p>Tasa de interés: 60%</p>
                 </div>
                 <div>
-                    <img src="images/prendario.png" alt="Dos personas en un auto." class="credit_img">
+                    <img src="images/prendario.png" alt="Dos personas en un auto." class="credit_img" loading="lazy">
                 </div>
             </article>
             <article id="credit_hipotecario" class="hiddenElement">
@@ -134,10 +134,10 @@
                     <p>Estás buscando comprar tu primer casa o departamento? No estás solo. Abank te acompaña para que puedas cumplir este sueño también!</p>
                     <p>Montos disponibles: $10.000.000 - $50.000.000</p>
                     <p>Plazo de devolución: 60 - 180 meses</p>
-                    <p>Tasa de interés: 55% anual</p>
+                    <p>Tasa de interés: 55%</p>
                 </div>
                 <div>
-                    <img src="images/hipotecario.png" alt="Dos personas en una casa nueva." class="credit_img">
+                    <img src="images/hipotecario.png" alt="Dos personas en una casa nueva." class="credit_img" loading="lazy">
                 </div>
             </article>
             <article id="credit_empresarial" class="hiddenElement">
@@ -146,10 +146,10 @@
                     <p>El espíritu emprendedor está en el centro de nuestra cultura. Si sos emprendedor, contá con nosotros. Concentrate en cumplir tus sueños, nosotros te cubrimos.</p>
                     <p>Montos disponibles: $10.000.000 - $100.000.000</p>
                     <p>Plazo de devolución: 24 - 60 meses</p>
-                    <p>Tasa de interés: 50% anual</p>
+                    <p>Tasa de interés: 50%</p>
                 </div>
                 <div>
-                    <img src="images/empresarial.png" alt="Tres personas trabajando en una mesa." class="credit_img">
+                    <img src="images/empresarial.png" alt="Tres personas trabajando en una mesa." class="credit_img" loading="lazy">
                 </div>
             </article>
         </div>
@@ -163,7 +163,7 @@
             <p>Utilizá nuestro simulador de créditos para conocer los montos disponibles según tu nivel de ingresos y los costos de las cuotas.</p>
             <div>
                 <form action="#" method="get" id="simulator-form_form">
-                    <label for="tipoCredito">Tipo de crédito</label>
+                    <label for="tipoCredito" id="labelTipoCredito">Tipo de crédito</label>
                     <select id="tipoCredito">
                         <option value="Personal">Personal</option>
                         <option value="Prendario">Prendario</option>
@@ -183,11 +183,9 @@
                     <select id="cantidadCuotas">
                     </select>
 
-                    <label for="monto">Monto a solicitar</label>
+                    <label for="monto" id="monto_tittle"></label>
                     <input id="monto" type="number" step="5000">
-                    <!-- min="100000" max="100000000" -->
-                    <a href="#" class="btn" id="btn-calcularCuotas">Calcular cuotas</a>
-                    <!-- <input type="submit" value="Calcular cuotas" class="btn" id="btn-calcularCuotas"> -->
+                    <a href="#" class="btn isDesabled" id="btn-calcularCuotas">Calcular cuotas</a>
                 </form>
                 <p id="insuficientIncomeMessage" class="displayNone">Lo sentimos, no puede solicitar un crédito con su nivel de ingresos actual.</p>
              </div>
@@ -195,6 +193,7 @@
       </article>
 
         <article class="simulator-form-response hiddenElement" id="simulator-form-response">
+            <p id="simulator-form-response_message"></p>
             <a href="#" class="btn" id="btn-contact-form">Solicitar crédito</a>
             <a href="#" class="btn-grey" id="btn-volverSimular_from_simulatorResponse">Volver a simular</a>
         </article>
@@ -202,7 +201,7 @@
         <article class="contact-form hiddenElement" id="contact-form">
             
             <p>Completá los siguientes datos y nos comunicaremos a la brevedad para adjudicar tu crédito.</p>
-
+            <p id="creditQuery-data"></p>
             <form id="contact-form_form" action="#" method="get">
                 <label for="nombre">Nombre</label>
                 <input type="text" placeholder="Nombre" id="nombre">
@@ -224,7 +223,7 @@
 
         <article class="contact-form-response hiddenElement" id="contact-form-response">
             <div id="contact-form-response_message">
-                <img src="images/icons/complete.png" alt="Ícono de completo.">
+                <img src="images/icons/complete.png" alt="Ícono de completo." loading="lazy">
             </div>
             <a href="#" class="btn" id="btn-creditHistory">Ver historial de créditos cotizados</a>
             <a href="#" class="btn-grey" id="btn-volverSimular_from_contactFormResponse">Volver a simular</a>
@@ -254,15 +253,15 @@
         <div>
             <article class="whatsapp">
                 <p>Por whatsapp al +54 11 2511 2323</p>
-                <img src="images/icons/whatsapp.png" alt="Ícono de whatsapp.">
+                <img src="images/icons/whatsapp.png" alt="Ícono de whatsapp." loading="lazy">
             </article>
             <article class="phone">
                 <p>Por teléfono al 0800 255 2323</p>
-                <img src="images/icons/phonecall.png" alt="Ícono de persona hablando por teléfono.">
+                <img src="images/icons/phonecall.png" alt="Ícono de persona hablando por teléfono." loading="lazy">
             </article>
             <article class="email">
                 <p>Por email a creditos@abank.com</p>
-                <img src="images/icons/email.png" alt="Ícono de email.">
+                <img src="images/icons/email.png" alt="Ícono de email." loading="lazy">
             </article>
         </div>
 
@@ -278,7 +277,7 @@
     <footer class="container">
         <div class="footer_container">
 
-            <img src="images/logos/logo_black.png" alt="Logo de la empresa" class="footer_logo">
+            <img src="images/logos/logo_black.png" alt="Logo de la empresa" class="footer_logo" loading="lazy">
 
             <div class="footer_nav_desktop">
                 <p>Navegación</p>
@@ -302,10 +301,12 @@
                 <a href="#contact">Contacto</a>
             </div>
 
-            <a href="http://www.bcra.gob.ar/BCRAyVos/Usuarios_Financieros.asp" target="_blank"><img src="images/icons/usuariosfinancieros.png" alt="Link a listado de usuarios financieros del banco central." class="usuariosFinancieros"></a>
+            <a href="http://www.bcra.gob.ar/BCRAyVos/Usuarios_Financieros.asp" target="_blank"><img src="images/icons/usuariosfinancieros.png" alt="Link a listado de usuarios financieros del banco central." class="usuariosFinancieros" loading="lazy"></a>
         </div>
     </footer>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="notify.min.js"></script>
     <script src="variables.js"></script>
     <script src="objects.js"></script>
     <script src="functions.js"></script>

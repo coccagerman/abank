@@ -80,6 +80,10 @@ html {
   pointer-events: none;
 }
 
+.isDesabled {
+  pointer-events: none;
+}
+
 /*------------------- SVG ------------------- */
 svg {
   position: absolute;

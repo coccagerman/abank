@@ -61,10 +61,14 @@ function calcularCuotas () {
     // Asigna valores del formulario a variables que se utilizan luego.
     asignarVariablesCredito()
     // Forma string y lo imprime en un nodo
-    let parrafo = document.createElement("p")
+    let message = document.getElementById("simulator-form-response_message")
+    message.innerHTML = "" 
     let contenido = document.createTextNode(`Para solicitar un crédito ${tipoCredito} por $${monto} a pagar en ${cantidadCuotas} cuotas, deberá pagar ${cantidadCuotas} cuotas de $${valorCuotas}.`)
-    parrafo.appendChild(contenido)
-    document.getElementById("simulator-form-response").insertBefore(parrafo,document.getElementById("btn-contact-form"))
+
+    // Resetea el valor para que se imprima de nuevo con cada simulación
+
+    message.appendChild(contenido)
+    document.getElementById("simulator-form-response").insertBefore(message,document.getElementById("btn-contact-form"))
 }
 
 function solicitarCredito () {
@@ -72,12 +76,13 @@ function solicitarCredito () {
     document.getElementById("simulator-form-response").setAttribute("class", "hiddenElement");
     document.getElementById("contact-form").setAttribute("class", "activeElement");
     // Toma valores del formulario de simulación, forma string y lo imprime en un nodo
-    let parrafo = document.createElement("p")
-    let contenido = document.createTextNode(`Tipo de crédito: ${tipoCredito}
+    let message = document.getElementById("creditQuery-data")
+    message.innerHTML = ""
+    let content = document.createTextNode(`Tipo de crédito: ${tipoCredito}
     Monto: $${monto}
     Costo: ${cantidadCuotas} cuotas de $${valorCuotas}`);
-    parrafo.appendChild(contenido)
-    document.getElementById("contact-form_form").insertBefore(parrafo,document.getElementById("btn-enviar-contact-form")).setAttribute("class", "creditDetails")
+    message.appendChild(content)
+    document.getElementById("contact-form_form").insertBefore(message,document.getElementById("btn-enviar-contact-form")).setAttribute("class", "creditDetails")
 }
 
 function simularDeNuevo_from_simulatorResponse () {
@@ -229,7 +234,66 @@ function populatePaymentOptions_BusinessCredit () {
     document.getElementById("cantidadCuotas").appendChild(tagOpt3).setAttribute("value", "60")
 }
 
-// Función que borra las opciones de cuotas y el mensaje de lowIncome
+// Funcion que valida el monto ingresado. Si el monto está ingresado y cumple los parámetros del tipo de crédito e ingresos netos, habilita el botón de avanzar.
+
+// No funciona porque cleanFormPaymentOptions() resetea clase del boton #btn-calcularCuotas a .btn
+
+function validateAmount (montoMinimo, montoMaximo) {
+    // Identificar tipo de crédito y nivel de ingresos seleccionado
+    // Según crédito y nivel de ingresos, identificar montos disponibles
+    // Validar si monto ingresado se encuentra dentro de montos disponibles, y si corresponde, habilitar avance.
+
+    amountEntered = document.getElementById("monto").value
+
+
+    console.log("amountEntered " + amountEntered)
+    console.log("montoMinimo " + montoMinimo)
+    console.log("montoMaximo " + montoMaximo)
+
+    if (amountEntered >= montoMinimo && amountEntered <= montoMaximo) {
+        document.getElementById("btn-calcularCuotas").removeAttribute("class", "isDesabled")
+    }
+}
+
+// Funcion que imprime las opciones montos según el tipo de crédito y nivel de ingresos, y valida el monto ingresado en el formulario para habilitar botón de avanzar. Hay que cambiarle el nombre a la función para que sea más representativa de su contenido.
+
+function modifyAvailableAmounts (ingresosNetos, montoMinimo, montoMaximo) {
+    let monto_tittle = document.getElementById("monto_tittle")
+    monto_tittle.innerHTML = "" // Resetea encabezado para que se vuelva imprimir luego de cada cambio en los parámetros.
+    // identificar nivel de ingresos
+    if (ingresosNetos == "-$30.0000") {
+    let content_monto_tittle = document.createTextNode(`Monto a solicitar`)
+    monto_tittle.appendChild(content_monto_tittle)
+    } 
+    
+    else if (ingresosNetos == "$30.000 - $50.000") {
+    // Calcular los montos dispnibles para cada crédito y modificarlos en el input del form
+    document.getElementById("monto").setAttribute("min", montoMinimo)
+    document.getElementById("monto").setAttribute("max", montoMaximo*0.5)
+    // imprimir los montos dispnibles para cada crédito en un mensaje
+    let content_monto_tittle = document.createTextNode(`Monto a solicitar (Montos disponibles: $${montoMinimo} - $${montoMaximo*0.5})`)
+    monto_tittle.appendChild(content_monto_tittle)
+    validateAmount(montoMinimo, montoMaximo*0.5)
+    } 
+    
+    else if (ingresosNetos == "$50.000 - $75.000") {
+    let content_monto_tittle = document.createTextNode(`Monto a solicitar (Montos disponibles: $${montoMinimo} - $${montoMaximo*0.75})`)
+    monto_tittle.appendChild(content_monto_tittle)
+    document.getElementById("monto").setAttribute("min", montoMinimo)
+    document.getElementById("monto").setAttribute("max", montoMaximo*0.75)
+    validateAmount(montoMinimo, montoMaximo*0.75)
+    } 
+    
+    else if (ingresosNetos == "+$75.0000") {
+    let content_monto_tittle = document.createTextNode(`Monto a solicitar (Montos disponibles: $${montoMinimo} - $${montoMaximo})`)
+    monto_tittle.appendChild(content_monto_tittle)
+    document.getElementById("monto").setAttribute("min", montoMinimo)
+    document.getElementById("monto").setAttribute("max", montoMaximo)
+    validateAmount(montoMinimo, montoMaximo)
+    }
+}
+
+// Función que borra las opciones de cuotas y el mensaje de lowIncome / a esta función hay que cambiarle el nombre para que sea más representativa de su contenido.
 function cleanFormPaymentOptions() {
     payomentOptions = document.getElementsByClassName("paymentOption")
     for (let i = 0; i < payomentOptions.length; i) {
@@ -237,8 +301,11 @@ function cleanFormPaymentOptions() {
     }
 
     if (document.getElementById("ingresosNetos").value != "-$30.0000") {
-        document.getElementById("insuficientIncomeMessage").setAttribute("class", "displayNone")
-        document.getElementById("btn-calcularCuotas").setAttribute("class", "btn")
+    document.getElementById("insuficientIncomeMessage").setAttribute("class", "displayNone")
+    document.getElementById("btn-calcularCuotas").setAttribute("class", "btn")
+    // document.getElementById("btn-calcularCuotas").classList.add("btn");
+    document.getElementById("cantidadCuotas").removeAttribute("disabled")
+    document.getElementById("monto").removeAttribute("disabled")
     }
 }
 
@@ -249,70 +316,80 @@ function adjustFormtOptions() {
     if (ingresosNetos == "-$30.0000") {
     document.getElementById("insuficientIncomeMessage").setAttribute("class", "displayBlock")
     document.getElementById("btn-calcularCuotas").setAttribute("class", "btn-disabled")
+    modifyAvailableAmounts(ingresosNetos, personalCredit.minAmount, personalCredit.topAmount)
+    document.getElementById("cantidadCuotas").setAttribute("disabled", true)
+    document.getElementById("monto").setAttribute("disabled", true)
     }
 
     else if (tipoCredito == "Personal" && ingresosNetos == "$30.000 - $50.000") {
     cleanFormPaymentOptions()
     populatePaymentOptions_PersonalCredit()
+    modifyAvailableAmounts(ingresosNetos, personalCredit.minAmount, personalCredit.topAmount)
     } 
     
     else if (tipoCredito == "Personal" && ingresosNetos == "$50.000 - $75.000") {
     cleanFormPaymentOptions()
     populatePaymentOptions_PersonalCredit()
+    modifyAvailableAmounts(ingresosNetos, personalCredit.minAmount, personalCredit.topAmount)
     }
 
     else if (tipoCredito == "Personal" && ingresosNetos == "+$75.0000") {
     cleanFormPaymentOptions()
     populatePaymentOptions_PersonalCredit()
+    modifyAvailableAmounts(ingresosNetos, personalCredit.minAmount, personalCredit.topAmount)
     }
 
     else if (tipoCredito == "Prendario" && ingresosNetos == "$30.000 - $50.000") {
     cleanFormPaymentOptions()
     populatePaymentOptions_PledgeCredit()
-
+    modifyAvailableAmounts(ingresosNetos, pledgeCredit.minAmount, pledgeCredit.topAmount)
     }
 
     else if (tipoCredito == "Prendario" && ingresosNetos == "$50.000 - $75.000") {
     cleanFormPaymentOptions()
     populatePaymentOptions_PledgeCredit()
-
+    modifyAvailableAmounts(ingresosNetos, pledgeCredit.minAmount, pledgeCredit.topAmount)
     }
 
     else if (tipoCredito == "Prendario" && ingresosNetos == "+$75.0000") {
     cleanFormPaymentOptions()
     populatePaymentOptions_PledgeCredit()
+    modifyAvailableAmounts(ingresosNetos, pledgeCredit.minAmount, pledgeCredit.topAmount)
     }
 
     else if (tipoCredito == "Hipotecario" && ingresosNetos == "$30.000 - $50.000") {
     cleanFormPaymentOptions()
     populatePaymentOptions_MortgageCredit()
+    modifyAvailableAmounts(ingresosNetos, mortgageCredit.minAmount, mortgageCredit.topAmount)
     }
 
     else if (tipoCredito == "Hipotecario" && ingresosNetos == "$50.000 - $75.000") {
     cleanFormPaymentOptions()
     populatePaymentOptions_MortgageCredit()
+    modifyAvailableAmounts(ingresosNetos, mortgageCredit.minAmount, mortgageCredit.topAmount)
     }
 
     else if (tipoCredito == "Hipotecario" && ingresosNetos == "+$75.0000") {
     cleanFormPaymentOptions()
     populatePaymentOptions_MortgageCredit()
+    modifyAvailableAmounts(ingresosNetos, mortgageCredit.minAmount, mortgageCredit.topAmount)
     }
 
     else if (tipoCredito == "Empresarial" && ingresosNetos == "$30.000 - $50.000") {
     cleanFormPaymentOptions()
     populatePaymentOptions_BusinessCredit()
+    modifyAvailableAmounts(ingresosNetos, businessCredit.minAmount, businessCredit.topAmount)
     }
 
     else if (tipoCredito == "Empresarial" && ingresosNetos == "$50.000 - $75.000") {
     cleanFormPaymentOptions()
     populatePaymentOptions_BusinessCredit()
+    modifyAvailableAmounts(ingresosNetos, businessCredit.minAmount, businessCredit.topAmount)
     }
 
     else if (tipoCredito == "Empresarial" && ingresosNetos == "+$75.0000") {
     cleanFormPaymentOptions()
     populatePaymentOptions_BusinessCredit()
+    modifyAvailableAmounts(ingresosNetos, businessCredit.minAmount, businessCredit.topAmount)
     }
 }
-
-// // ----------------------- SIMULADOR - FORM - Modificar montos disponibles según ingresos declarados -----------------------
-

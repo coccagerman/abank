@@ -77,5 +77,14 @@ document.getElementById("tipoCredito").addEventListener("change", adjustFormtOpt
 document.getElementById("ingresosNetos").addEventListener("change", adjustFormtOptions)
 document.addEventListener("DOMContentLoaded", adjustFormtOptions) // Para que figuren opciones apenas cargue el sitio, sin que la selección necesariamente cambie
 
-// ----------------------- SIMULADOR - FORM RESPONSE - Tomar datos del form y utilizarlos para dar respuesta en string
+// ----------------------- SIMULADOR - FORM RESPONSE - Validar si monto ingresado cumple los parámetros del tipo de crédito e ingresos netos. Si cumple, habilita el botón de avanzar.
 
+// document.getElementById("monto").value
+// let creditQueryAmount = document.getElementById("monto").value
+// creditQueryAmount.addEventListener("change", modifyAvailableAmounts)
+
+// ----------------------- SIMULADOR - FORM ------------------------ Notificaciones al hacer hover sombre los espacios del form
+
+// console.log($("labelTipoCredito"))
+console.log(document.getElementById("labelTipoCredito"))
+document.getElementById("labelTipoCredito").onmouseover = notify("I'm over here !",  { position:"right" })
