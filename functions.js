@@ -55,6 +55,12 @@ function asignarVariablesCredito() {
 // Además de mover el slide, cada función ejecuta las tareas correspondientes a cada sección.
 
 function calcularCuotas () {
+    // Al clickear botón valida que monto solicitado esté completo y esté dentro de los parametros del credito. Si no cumple, arroja error.Si cumple, avanza.
+    let amount = document.getElementById("monto").value
+    let minAmount = parseInt(document.getElementById("monto").min)
+    let maxAmount = parseInt(document.getElementById("monto").max)
+
+    if (amount >= minAmount && amount <= maxAmount) {
     // Mueve slide
     document.getElementById("simulator-form").setAttribute("class", "hiddenElement");
     document.getElementById("simulator-form-response").setAttribute("class", "activeElement");
@@ -62,13 +68,16 @@ function calcularCuotas () {
     asignarVariablesCredito()
     // Forma string y lo imprime en un nodo
     let message = document.getElementById("simulator-form-response_message")
-    message.innerHTML = "" 
+        // Resetea el valor para que se imprima de nuevo con cada simulación
+        message.innerHTML = "" 
     let contenido = document.createTextNode(`Para solicitar un crédito ${tipoCredito} por $${monto} a pagar en ${cantidadCuotas} cuotas, deberá pagar ${cantidadCuotas} cuotas de $${valorCuotas}.`)
-
-    // Resetea el valor para que se imprima de nuevo con cada simulación
-
     message.appendChild(contenido)
     document.getElementById("simulator-form-response").insertBefore(message,document.getElementById("btn-contact-form"))
+    } 
+    
+    else {
+    document.getElementById("amountErrorMessage").setAttribute("class", "displayBlock")
+    }
 }
 
 function solicitarCredito () {
@@ -88,13 +97,31 @@ function solicitarCredito () {
 function simularDeNuevo_from_simulatorResponse () {
     document.getElementById("simulator-form-response").setAttribute("class", "hiddenElement");
     document.getElementById("simulator-form").setAttribute("class", "activeElement");
+    document.getElementById("amountErrorMessage").setAttribute("class", "displayNone")
 }
 
 function enviarFormContacto () {
+    // Toma valores insertados en form y los compara contra regex correspondiente.
+    let name = document.getElementById("nombre").value
+    let telephone = document.getElementById("telefono").value
+    let email = document.getElementById("email").value
+    let nameValidation = validateInput(regex.name, name)
+    let telephoneValidation = validateInput(regex.telephone, telephone)
+    let emailValidation = validateInput(regex.email, email)
+    console.log (name, telephone, email, nameValidation, telephoneValidation, emailValidation)
+    
+    if (nameValidation == false || telephoneValidation == false || emailValidation == false) {
+    document.getElementById("contactForm_ErrorMessage").setAttribute("class", "displayBlock")
+    }
+
+    else {
+    // Oculta mensaje de error.
+    document.getElementById("contactForm_ErrorMessage").setAttribute("class", "displayNone")
+    // Mueve slide.
     document.getElementById("contact-form").setAttribute("class", "hiddenElement");
     document.getElementById("contact-form-response").setAttribute("class", "activeElement");
 
-    // Toma valores del formulario de contacto, forma string y lo imprime en un nodo
+    // Toma valores del formulario de contacto, forma string y lo imprime en un nodo.
     let nombre = document.getElementById("nombre").value.trim()
     let parrafo = document.createElement("p")
     let contenido = document.createTextNode(`Gracias, ${nombre}!
@@ -102,16 +129,18 @@ function enviarFormContacto () {
     parrafo.appendChild(contenido)
     document.getElementById("contact-form-response_message").appendChild(parrafo)
 
-    // Almacena variables del crédito en sessionStorage para luego mostrarlo en historial
+    // Almacena variables del crédito en sessionStorage para luego mostrarlo en historial.
     sessionStorage.setItem('tipoCredito', tipoCredito)
     sessionStorage.setItem('monto', monto)
     sessionStorage.setItem('cantidadCuotas', cantidadCuotas)
     sessionStorage.setItem('valorCuotas', valorCuotas)
+    }
 }
 
 function simularDeNuevo_from_contactForm () {
     document.getElementById("contact-form").setAttribute("class", "hiddenElement");
     document.getElementById("simulator-form").setAttribute("class", "activeElement");
+    document.getElementById("amountErrorMessage").setAttribute("class", "displayNone")
 }
 
 function verHistorialCreditos () {
@@ -143,11 +172,13 @@ function verHistorialCreditos () {
 function simularDeNuevo_from_contactFormResponse () {
     document.getElementById("contact-form-response").setAttribute("class", "hiddenElement");
     document.getElementById("simulator-form").setAttribute("class", "activeElement");
+    document.getElementById("amountErrorMessage").setAttribute("class", "displayNone")
 }
 
 function simularDeNuevo_from_creditHistory () {
     document.getElementById("credit-history").setAttribute("class", "hiddenElement");
     document.getElementById("simulator-form").setAttribute("class", "activeElement");
+    document.getElementById("amountErrorMessage").setAttribute("class", "displayNone")
 }
 
 // // ----------------------- SIMULADOR - FORM ------------------------ Modificar cantidad de cuotas disponibles según tipo de crédito seleccionado y modificar montos disponibles según ingresos declarados
@@ -238,24 +269,7 @@ function populatePaymentOptions_BusinessCredit () {
 
 // No funciona porque cleanFormPaymentOptions() resetea clase del boton #btn-calcularCuotas a .btn
 
-function validateAmount (montoMinimo, montoMaximo) {
-    // Identificar tipo de crédito y nivel de ingresos seleccionado
-    // Según crédito y nivel de ingresos, identificar montos disponibles
-    // Validar si monto ingresado se encuentra dentro de montos disponibles, y si corresponde, habilitar avance.
-
-    amountEntered = document.getElementById("monto").value
-
-
-    console.log("amountEntered " + amountEntered)
-    console.log("montoMinimo " + montoMinimo)
-    console.log("montoMaximo " + montoMaximo)
-
-    if (amountEntered >= montoMinimo && amountEntered <= montoMaximo) {
-        document.getElementById("btn-calcularCuotas").removeAttribute("class", "isDesabled")
-    }
-}
-
-// Funcion que imprime las opciones montos según el tipo de crédito y nivel de ingresos, y valida el monto ingresado en el formulario para habilitar botón de avanzar. Hay que cambiarle el nombre a la función para que sea más representativa de su contenido.
+// Funcion que imprime las opciones montos según el tipo de crédito y nivel de ingresos.
 
 function modifyAvailableAmounts (ingresosNetos, montoMinimo, montoMaximo) {
     let monto_tittle = document.getElementById("monto_tittle")
@@ -273,7 +287,6 @@ function modifyAvailableAmounts (ingresosNetos, montoMinimo, montoMaximo) {
     // imprimir los montos dispnibles para cada crédito en un mensaje
     let content_monto_tittle = document.createTextNode(`Monto a solicitar (Montos disponibles: $${montoMinimo} - $${montoMaximo*0.5})`)
     monto_tittle.appendChild(content_monto_tittle)
-    validateAmount(montoMinimo, montoMaximo*0.5)
     } 
     
     else if (ingresosNetos == "$50.000 - $75.000") {
@@ -281,7 +294,6 @@ function modifyAvailableAmounts (ingresosNetos, montoMinimo, montoMaximo) {
     monto_tittle.appendChild(content_monto_tittle)
     document.getElementById("monto").setAttribute("min", montoMinimo)
     document.getElementById("monto").setAttribute("max", montoMaximo*0.75)
-    validateAmount(montoMinimo, montoMaximo*0.75)
     } 
     
     else if (ingresosNetos == "+$75.0000") {
@@ -289,7 +301,6 @@ function modifyAvailableAmounts (ingresosNetos, montoMinimo, montoMaximo) {
     monto_tittle.appendChild(content_monto_tittle)
     document.getElementById("monto").setAttribute("min", montoMinimo)
     document.getElementById("monto").setAttribute("max", montoMaximo)
-    validateAmount(montoMinimo, montoMaximo)
     }
 }
 

@@ -1,6 +1,6 @@
 // ----------------------- NAVBAR ----------------------- Mobile navbar animated button
 
-var hamburguer = 0;
+let hamburguer = 0;
 
 $('.hamburguer').click(function(){
 
@@ -23,7 +23,7 @@ $('.hamburguer').click(function(){
     }
 }); 
 
-$('li').click(function(){
+$('#menu ul li').click(function(){
     $('#menu').toggleClass('menu-active');
     $("#top").removeClass('top');
     $("#center").removeClass('center');
@@ -115,9 +115,3 @@ document.addEventListener("DOMContentLoaded", adjustFormtOptions) // Para que fi
 // document.getElementById("monto").value
 // let creditQueryAmount = document.getElementById("monto").value
 // creditQueryAmount.addEventListener("change", modifyAvailableAmounts)
-
-// ----------------------- SIMULADOR - FORM ------------------------ Notificaciones al hacer hover sombre los espacios del form
-
-// console.log($("labelTipoCredito"))
-// console.log(document.getElementById("labelTipoCredito"))
-// document.getElementById("labelTipoCredito").onmouseover = notify("I'm over here !",  { position:"right" })
