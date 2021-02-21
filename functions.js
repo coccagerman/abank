@@ -108,7 +108,6 @@ function enviarFormContacto () {
     let nameValidation = validateInput(regex.name, name)
     let telephoneValidation = validateInput(regex.telephone, telephone)
     let emailValidation = validateInput(regex.email, email)
-    console.log (name, telephone, email, nameValidation, telephoneValidation, emailValidation)
     
     if (nameValidation == false || telephoneValidation == false || emailValidation == false) {
     document.getElementById("contactForm_ErrorMessage").setAttribute("class", "displayBlock")
@@ -123,11 +122,10 @@ function enviarFormContacto () {
 
     // Toma valores del formulario de contacto, forma string y lo imprime en un nodo.
     let nombre = document.getElementById("nombre").value.trim()
-    let parrafo = document.createElement("p")
-    let contenido = document.createTextNode(`Gracias, ${nombre}!
-    A la brevedad nos comunicaremos con vos para adjudicar tu crédito.`)
-    parrafo.appendChild(contenido)
-    document.getElementById("contact-form-response_message").appendChild(parrafo)
+    let message = document.getElementById("contact-form-response_message-p")
+    message.innerHTML = ""
+    message.innerHTML = `Gracias, ${nombre}!
+    A la brevedad nos comunicaremos con vos para adjudicar tu crédito.`
 
     // Almacena variables del crédito en sessionStorage para luego mostrarlo en historial.
     sessionStorage.setItem('tipoCredito', tipoCredito)

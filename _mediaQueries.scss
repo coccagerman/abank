@@ -1,6 +1,9 @@
 /*------------------- MOBILE ------------------- */
 
 @media screen and (max-width: 767px) {
+    .activeElement {
+    left: 0%;
+    }
 
     header{
 
@@ -40,10 +43,6 @@
             }
         }
 
-        // #menu:target {
-        // left: 0;
-        // }
-
         .menu-active {
         left: 0;
         transition: left .5s;
@@ -59,6 +58,7 @@
 
             .line {
             background: white;
+            border-radius: .5rem;
             width: 40px;
             height: 6px;
             margin-bottom: 8px;
@@ -83,7 +83,7 @@
             -ms-transform: rotate(140deg); /* IE 9 */
             -webkit-transform: rotate(140deg); /* Chrome, Safari, Opera */
             transform: rotate(45deg);
-            top: -12px;
+            top: -10px;
             position: relative;
             }
         }
@@ -128,7 +128,7 @@
     }
 
     .credits {
-    padding: 10rem 0;
+    padding: 5rem 0 10rem 0;
     
         .credits_nav {
             h2 {
@@ -146,14 +146,103 @@
 
         article {
         flex-direction: column;
-        margin: 3rem 0rem 3rem -3rem;
-
+        margin: 3rem 2rem 3rem 2rem;
+            .txt {
+            margin: .5rem 0 1.5rem 0;
+            max-width: 18rem;
+            }
             .credit_img {
             width: 18rem;
             }
         }
     }
     
+    .simulator {
+// height: 50rem;
+// display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+    
+    .simulator > * {
+    margin: 0 auto 15rem auto;
+    padding-top: 2rem;
+    }
+
+    // Por algún motivo este elemento no se centra con el display flex, ni con otros métodos. Momentáneamente quedó con el valor de margin left.
+    #simulator-form {
+    flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        p {
+        font-size: 1.25rem;
+        max-width: 16rem;
+        margin: 0 0 0 0;
+        text-align: center;
+        }
+
+        form {
+        width: 20rem;
+        margin-left: 1.25rem;
+        }
+
+        #amountErrorMessage, #insuficientIncomeMessage {
+        font-size: 1rem;
+        } 
+    }
+
+    #simulator-form-response {
+    max-width: 25rem;
+    margin: 0 2rem;
+    }
+
+    // Por algún motivo este elemento no se centra con el display flex, ni con otros métodos. Momentáneamente quedó con el valor de margin left.
+    #contact-form {
+    flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    
+        p {
+        font-size: 1.25rem;
+        max-width: 16rem;
+        margin: 0 0 0 0;
+        text-align: center;
+        }
+
+        form {
+        width: 20rem;
+        margin-left: 1.25rem;
+
+            #contactForm_ErrorMessage {
+            font-size: 1rem;
+            } 
+        }
+    }
+
+    #contact-form-response {
+
+        div {
+        flex-direction: column;
+
+            img {
+            width: 10rem;
+            margin: 0 0 1.5rem 0;
+            }
+        }
+    }
+
+    #credit-history {
+
+        .credit-history_table {
+        margin: 0 auto 2rem auto;
+
+            th {
+            padding: .5rem .5rem;
+            }
+        }
+    }
+}
 
 
     .contact {

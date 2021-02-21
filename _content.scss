@@ -226,6 +226,13 @@ display: flex;
             margin-top: 2rem;
             }
         }
+
+        #amountErrorMessage, #insuficientIncomeMessage {
+            color: red;
+            font-size: 1.25rem;
+            text-align: center;
+            margin: auto;
+        } 
     }
 
     #simulator-form-response {
@@ -274,6 +281,13 @@ display: flex;
             .creditDetails {
             font-size: 1rem;
             }
+
+            #contactForm_ErrorMessage {
+                color: red;
+                font-size: 1.25rem;
+                text-align: center;
+                margin: auto;
+            } 
         }
     }
 

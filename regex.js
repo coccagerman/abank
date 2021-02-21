@@ -1,6 +1,6 @@
 // Regex y función para validación de datos de formulario de contacto
 const regex = {
-    name: /^[a-z]{2,30}$/i,
+    name: /^[a-zÀ-ú]{2,30}$/i,
     telephone: /^\d{8,20}$/,
     email: /^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/
 };
