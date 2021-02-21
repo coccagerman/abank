@@ -1,3 +1,33 @@
+// ----------------------- NAVBAR ----------------------- Mobile navbar animated button
+
+var hamburguer = 0;
+
+$('.hamburguer').click(function(){
+
+    $('#menu').toggleClass('menu-active');
+
+    if (hamburguer==0) {
+    hamburguer+=1;
+    $("#top").addClass('top');
+    $("#center").addClass('center');
+    $("#bottom").addClass('bottom');
+    }
+    
+    else {
+    hamburguer-=1;
+    $("#top").removeClass('top');
+    $("#center").removeClass('center');
+    $("#bottom").removeClass('bottom');
+    }
+}); 
+
+$('li').click(function(){
+    $('#menu').toggleClass('menu-active');
+    $("#top").removeClass('top');
+    $("#center").removeClass('center');
+    $("#bottom").removeClass('bottom');
+}); 
+
 // ----------------------- CREDITOS ----------------------- preventDefault de botones (evita que resetee página luego del click) / Se debe optimizar juntando todos los botones en una array y ejecutando la función sobre el array una sola vez (Unificarl todos los botones por clase en un mismo array)
 
 document.getElementById("btn-credit_personal").addEventListener('click', function (e) {
@@ -86,5 +116,5 @@ document.addEventListener("DOMContentLoaded", adjustFormtOptions) // Para que fi
 // ----------------------- SIMULADOR - FORM ------------------------ Notificaciones al hacer hover sombre los espacios del form
 
 // console.log($("labelTipoCredito"))
-console.log(document.getElementById("labelTipoCredito"))
-document.getElementById("labelTipoCredito").onmouseover = notify("I'm over here !",  { position:"right" })
+// console.log(document.getElementById("labelTipoCredito"))
+// document.getElementById("labelTipoCredito").onmouseover = notify("I'm over here !",  { position:"right" })

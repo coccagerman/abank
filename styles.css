@@ -728,6 +728,7 @@ footer .footer_container .usuariosFinancieros {
   header .header_logo {
     width: 15rem;
     margin: 0 0 0 6rem;
+    z-index: 4;
   }
   header nav {
     position: fixed;
@@ -735,7 +736,7 @@ footer .footer_container .usuariosFinancieros {
     top: 0;
     width: 100%;
     height: 100vh;
-    background: white;
+    background: #266FF5;
     -webkit-transition: left 0.5s;
     transition: left 0.5s;
     z-index: 3;
@@ -760,17 +761,50 @@ footer .footer_container .usuariosFinancieros {
   header nav ul a {
     font-size: 1.8rem;
     font-weight: bold;
-    color: #266FF5;
+    color: white;
   }
-  header #menu:target {
-    left: 0;
-  }
-  header .icon {
-    display: block;
-    width: 3rem;
+  header .menu-active {
     position: absolute;
+    left: 0%;
+    -webkit-transition: left .5s;
+    transition: left .5s;
+  }
+  header .hamburguer {
+    position: absolute;
+    top: 1.5rem;
     left: 1rem;
-    top: 1rem;
+    margin: auto;
+    z-index: 4;
+  }
+  header .hamburguer .line {
+    background: white;
+    width: 40px;
+    height: 6px;
+    margin-bottom: 8px;
+    -webkit-transition: .5s;
+    transition: .5s;
+  }
+  header .hamburguer .top {
+    /* IE 9 */
+    -webkit-transform: rotate(-45deg);
+    /* Chrome, Safari, Opera */
+    transform: rotate(-45deg);
+    top: 18px;
+    position: relative;
+  }
+  header .hamburguer .center {
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: visibility 0s 0,3s, opacity 2s linear;
+    transition: visibility 0s 0,3s, opacity 2s linear;
+  }
+  header .hamburguer .bottom {
+    /* IE 9 */
+    -webkit-transform: rotate(140deg);
+    /* Chrome, Safari, Opera */
+    transform: rotate(45deg);
+    top: -12px;
+    position: relative;
   }
   .hero p {
     position: relative;
