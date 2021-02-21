@@ -2,7 +2,6 @@
 - Resumir CSS y JS
 
 Eventos:
-- Botón animado para navbar mobile
 - Animación para carga del sitio
 
 Simulador:

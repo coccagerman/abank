@@ -5,6 +5,8 @@ var hamburguer = 0;
 $('.hamburguer').click(function(){
 
     $('#menu').toggleClass('menu-active');
+    $('body').toggleClass('fixed-position');
+
 
     if (hamburguer==0) {
     hamburguer+=1;
@@ -26,6 +28,7 @@ $('li').click(function(){
     $("#top").removeClass('top');
     $("#center").removeClass('center');
     $("#bottom").removeClass('bottom');
+    $('body').removeClass('fixed-position');
 }); 
 
 // ----------------------- CREDITOS ----------------------- preventDefault de botones (evita que resetee página luego del click) / Se debe optimizar juntando todos los botones en una array y ejecutando la función sobre el array una sola vez (Unificarl todos los botones por clase en un mismo array)

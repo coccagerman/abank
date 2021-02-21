@@ -16,6 +16,7 @@
             top: 0;
         width: 100%;
         height: 100vh;
+        overflow-y: hidden;
         background: $blue;
         transition: left 0.5s;
         z-index: 3;
@@ -39,9 +40,12 @@
             }
         }
 
+        // #menu:target {
+        // left: 0;
+        // }
+
         .menu-active {
-        position: absolute;
-        left: 0%;
+        left: 0;
         transition: left .5s;
         }
 
