@@ -1,3 +1,10 @@
+// ----------------------- PRELOAD ANIMTION -----------------------
+
+$(window).on("load", function() {
+$(".preloader_wrapper").fadeOut(2000);
+})
+
+
 // ----------------------- NAVBAR ----------------------- Mobile navbar animated button
 
 let hamburguer = 0;
