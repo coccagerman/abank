@@ -1,3 +1,33 @@
+// // ----------------------- MOBILE NAVBAR -----------------------
+
+function displayMobileMenu () {
+
+    $('#menu').toggleClass('menu-active');
+    $('body').toggleClass('fixed-position');
+
+    if (hamburguer==0) {
+    hamburguer+=1;
+    $("#top").addClass('top');
+    $("#center").addClass('center');
+    $("#bottom").addClass('bottom');
+    }
+    
+    else {
+    hamburguer-=1;
+    $("#top").removeClass('top');
+    $("#center").removeClass('center');
+    $("#bottom").removeClass('bottom');
+    }
+}
+
+function hideMobileMenu () {
+    $('#menu').toggleClass('menu-active');
+    $("#top").removeClass('top');
+    $("#center").removeClass('center');
+    $("#bottom").removeClass('bottom');
+    $('body').removeClass('fixed-position');
+}
+
 // // ----------------------- CREDITOS - SLIDERS ----------------------- Ocultar la sección actual y mostrar la siguiente a partir de onclick (como slider) / Se puede optimizar con una única función que recorra un array de secciones a medida que se aprietan los botones, y que la función detecte el href del botón, llevándote al slide de ese href.
 
 function slidePersonalCredit () {
@@ -11,25 +41,25 @@ function slidePersonalCredit () {
     document.getElementById("btn-credit_personal").setAttribute("class", "active");
 }
 
-function slidePrendarioCredit () {
+function slidePledgeCredit () {
     document.getElementsByClassName("activeElement")[0].setAttribute("class", "hiddenElement");
     document.getElementsByClassName("active")[0].setAttribute("class", "inactive");
-    document.getElementById("credit_prendario").setAttribute("class", "activeElement");
-    document.getElementById("btn-credit_prendario").setAttribute("class", "active");
+    document.getElementById("credit_pledge").setAttribute("class", "activeElement");
+    document.getElementById("btn-credit_pledge").setAttribute("class", "active");
 }
 
-function slideHipotecarioCredit () {
+function slideMortgageCredit () {
     document.getElementsByClassName("activeElement")[0].setAttribute("class", "hiddenElement");
     document.getElementsByClassName("active")[0].setAttribute("class", "inactive");
-    document.getElementById("credit_hipotecario").setAttribute("class", "activeElement");
-    document.getElementById("btn-credit_hipotecario").setAttribute("class", "active");
+    document.getElementById("credit_mortgage").setAttribute("class", "activeElement");
+    document.getElementById("btn-credit_mortgage").setAttribute("class", "active");
 }
 
-function slideEmpresarialCredit () {
+function slideBusinessCredit () {
     document.getElementsByClassName("activeElement")[0].setAttribute("class", "hiddenElement");
     document.getElementsByClassName("active")[0].setAttribute("class", "inactive");
-    document.getElementById("credit_empresarial").setAttribute("class", "activeElement");
-    document.getElementById("btn-credit_empresarial").setAttribute("class", "active");
+    document.getElementById("credit_business").setAttribute("class", "activeElement");
+    document.getElementById("btn-credit_business").setAttribute("class", "active");
 }
 
 // // ----------------------- SIMULADOR -----------------------
@@ -41,9 +71,9 @@ function asignarVariablesCredito() {
     cantidadCuotas = document.getElementById("cantidadCuotas").value
     if (document.getElementById("tipoCredito").value == "Personal") {
         tasaInteres = 1.65
-    } else if (document.getElementById("tipoCredito").value == "Prendario") {
+    } else if (document.getElementById("tipoCredito").value == "Pledge") {
         tasaInteres = 1.60
-    } else if (document.getElementById("tipoCredito").value == "Hipotecario") {
+    } else if (document.getElementById("tipoCredito").value == "Mortgage") {
         tasaInteres = 1.55
     } else {
         tasaInteres = 1.50
@@ -348,55 +378,55 @@ function adjustFormtOptions() {
     modifyAvailableAmounts(ingresosNetos, personalCredit.minAmount, personalCredit.topAmount)
     }
 
-    else if (tipoCredito == "Prendario" && ingresosNetos == "$30.000 - $50.000") {
+    else if (tipoCredito == "Pledge" && ingresosNetos == "$30.000 - $50.000") {
     cleanFormPaymentOptions()
     populatePaymentOptions_PledgeCredit()
     modifyAvailableAmounts(ingresosNetos, pledgeCredit.minAmount, pledgeCredit.topAmount)
     }
 
-    else if (tipoCredito == "Prendario" && ingresosNetos == "$50.000 - $75.000") {
+    else if (tipoCredito == "Pledge" && ingresosNetos == "$50.000 - $75.000") {
     cleanFormPaymentOptions()
     populatePaymentOptions_PledgeCredit()
     modifyAvailableAmounts(ingresosNetos, pledgeCredit.minAmount, pledgeCredit.topAmount)
     }
 
-    else if (tipoCredito == "Prendario" && ingresosNetos == "+$75.0000") {
+    else if (tipoCredito == "Pledge" && ingresosNetos == "+$75.0000") {
     cleanFormPaymentOptions()
     populatePaymentOptions_PledgeCredit()
     modifyAvailableAmounts(ingresosNetos, pledgeCredit.minAmount, pledgeCredit.topAmount)
     }
 
-    else if (tipoCredito == "Hipotecario" && ingresosNetos == "$30.000 - $50.000") {
+    else if (tipoCredito == "Mortgage" && ingresosNetos == "$30.000 - $50.000") {
     cleanFormPaymentOptions()
     populatePaymentOptions_MortgageCredit()
     modifyAvailableAmounts(ingresosNetos, mortgageCredit.minAmount, mortgageCredit.topAmount)
     }
 
-    else if (tipoCredito == "Hipotecario" && ingresosNetos == "$50.000 - $75.000") {
+    else if (tipoCredito == "Mortgage" && ingresosNetos == "$50.000 - $75.000") {
     cleanFormPaymentOptions()
     populatePaymentOptions_MortgageCredit()
     modifyAvailableAmounts(ingresosNetos, mortgageCredit.minAmount, mortgageCredit.topAmount)
     }
 
-    else if (tipoCredito == "Hipotecario" && ingresosNetos == "+$75.0000") {
+    else if (tipoCredito == "Mortgage" && ingresosNetos == "+$75.0000") {
     cleanFormPaymentOptions()
     populatePaymentOptions_MortgageCredit()
     modifyAvailableAmounts(ingresosNetos, mortgageCredit.minAmount, mortgageCredit.topAmount)
     }
 
-    else if (tipoCredito == "Empresarial" && ingresosNetos == "$30.000 - $50.000") {
+    else if (tipoCredito == "Business" && ingresosNetos == "$30.000 - $50.000") {
     cleanFormPaymentOptions()
     populatePaymentOptions_BusinessCredit()
     modifyAvailableAmounts(ingresosNetos, businessCredit.minAmount, businessCredit.topAmount)
     }
 
-    else if (tipoCredito == "Empresarial" && ingresosNetos == "$50.000 - $75.000") {
+    else if (tipoCredito == "Business" && ingresosNetos == "$50.000 - $75.000") {
     cleanFormPaymentOptions()
     populatePaymentOptions_BusinessCredit()
     modifyAvailableAmounts(ingresosNetos, businessCredit.minAmount, businessCredit.topAmount)
     }
 
-    else if (tipoCredito == "Empresarial" && ingresosNetos == "+$75.0000") {
+    else if (tipoCredito == "Business" && ingresosNetos == "+$75.0000") {
     cleanFormPaymentOptions()
     populatePaymentOptions_BusinessCredit()
     modifyAvailableAmounts(ingresosNetos, businessCredit.minAmount, businessCredit.topAmount)

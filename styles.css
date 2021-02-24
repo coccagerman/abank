@@ -809,14 +809,14 @@ header ul a:hover::after {
   color: #44FFD4;
 }
 
-/*------------------- NOSOTROS ------------------- */
-.nosotros {
+/*------------------- ABOUT US ------------------- */
+.aboutUs {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.nosotros .nosotros-txt {
+.aboutUs .aboutUs-txt {
   font-size: 1.4rem;
   color: #266FF5;
   background-color: white;
@@ -836,11 +836,11 @@ header ul a:hover::after {
           flex-direction: column;
 }
 
-.nosotros .nosotros-txt p {
+.aboutUs .aboutUs-txt p {
   margin: 1rem 0;
 }
 
-.nosotros .nosotros-img {
+.aboutUs .aboutUs-img {
   width: 60%;
   background-image: url(images/background/img_nosotros.webp);
   background-size: cover;
@@ -848,7 +848,7 @@ header ul a:hover::after {
   height: 100vh;
 }
 
-.nosotros .bottomWave {
+.aboutUs .bottomWave {
   z-index: 3;
 }
 
@@ -923,7 +923,7 @@ header ul a:hover::after {
   background-image: url(images/background/blob3.svg);
 }
 
-/*------------------- CREDITOS ------------------- */
+/*------------------- CREDITS ------------------- */
 .credits {
   padding: 15rem 0;
   height: 50rem;
@@ -1334,7 +1334,7 @@ footer .footer_container .usuariosFinancieros {
   }
   header .header_logo {
     width: 15rem;
-    margin: 0 0 0 6rem;
+    margin: 0 15rem 0 0;
     z-index: 4;
   }
   header nav {
@@ -1376,14 +1376,14 @@ footer .footer_container .usuariosFinancieros {
     -webkit-transition: left .5s;
     transition: left .5s;
   }
-  header .hamburguer {
+  header .hamburguer-icon {
     position: absolute;
     top: 1.5rem;
-    left: 1rem;
+    right: 2rem;
     margin: auto;
     z-index: 4;
   }
-  header .hamburguer .line {
+  header .hamburguer-icon .line {
     background: white;
     border-radius: .5rem;
     width: 40px;
@@ -1392,7 +1392,7 @@ footer .footer_container .usuariosFinancieros {
     -webkit-transition: .5s;
     transition: .5s;
   }
-  header .hamburguer .top {
+  header .hamburguer-icon .top {
     /* IE 9 */
     -webkit-transform: rotate(-45deg);
     /* Chrome, Safari, Opera */
@@ -1400,13 +1400,13 @@ footer .footer_container .usuariosFinancieros {
     top: 18px;
     position: relative;
   }
-  header .hamburguer .center {
+  header .hamburguer-icon .center {
     visibility: hidden;
     opacity: 0;
     -webkit-transition: visibility 0s 0,3s, opacity 2s linear;
     transition: visibility 0s 0,3s, opacity 2s linear;
   }
-  header .hamburguer .bottom {
+  header .hamburguer-icon .bottom {
     /* IE 9 */
     -webkit-transform: rotate(140deg);
     /* Chrome, Safari, Opera */
@@ -1422,16 +1422,16 @@ footer .footer_container .usuariosFinancieros {
     font-size: 4rem;
     max-width: 7rem;
   }
-  .nosotros {
+  .aboutUs {
     display: block;
   }
-  .nosotros .nosotros-txt {
+  .aboutUs .aboutUs-txt {
     width: 100%;
-    margin-bottom: 3rem;
+    margin-bottom: 3.5rem;
     text-align: center;
-    margin-top: 2rem;
+    margin-top: 3.5rem;
   }
-  .nosotros .nosotros-img {
+  .aboutUs .aboutUs-img {
     display: none;
   }
   .steps div {

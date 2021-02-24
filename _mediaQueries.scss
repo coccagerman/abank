@@ -9,7 +9,7 @@
 
         .header_logo {
         width: 15rem;
-        margin: 0 0 0 6rem;
+        margin: 0 15rem 0 0;
         z-index: 4;
         }
 
@@ -48,10 +48,10 @@
         transition: left .5s;
         }
 
-        .hamburguer {
+        .hamburguer-icon {
         position: absolute;
         top: 1.5rem;
-        left: 1rem;
+        right: 2rem;
         margin: auto;
         z-index: 4;
 
@@ -100,17 +100,17 @@
         }
     }
 
-    .nosotros {
+    .aboutUs {
     display: block;
     
-        .nosotros-txt{
+        .aboutUs-txt{
         width: 100%;
-        margin-bottom: 3rem;
+        margin-bottom: 3.5rem;
         text-align: center;
-        margin-top: 2rem;
+        margin-top: 3.5rem;
         }
     
-        .nosotros-img{
+        .aboutUs-img{
         display: none;
         }
     }
