@@ -4,9 +4,9 @@
 - Corregir alineación de elementos de simulador.
 - Corregir frase del hero (se rompe con pantalla minimizada)
 - Corregir logo del header (se rompe con pantalla minimizada)
-- Pasar menú de versión mobile a lado derecho.
 - Corregir alineación frase del hero (se rompe con pantalla minimizada)
 - Comprimir JS y CSS
+- Corregir bug de botón navbar mobile (cuando hacés click en un elemento li se acciona la animación y no debiese accionarse)
 
 Simulador:
 - Agregar un modal que aparezca en hover sobre cada opción, con mensaje explicativo de qué completar.
