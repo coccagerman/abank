@@ -12,9 +12,9 @@ $('.hamburguer-icon').click(displayMobileMenu);
 
 $('#menu ul li').click(hideMobileMenu);
 
-// ----------------------- CREDITS & SIMUALTOR ----------------------- preventDefault de botones (evita que resetee página luego del click) / Eficientizar unificando todos los botones en una clase .preventDefault
+// ----------------------- CREDITS & SIMULATOR ----------------------- preventDefault de botones (evita que resetee página luego del click) 
 
-$("#btn-credit_personal, #btn-credit_pledge, #btn-credit_mortgage, #btn-credit_business, #btn-calcularCuotas, #btn-contact-form, #btn-volverSimular_from_simulatorResponse, #btn-enviar-contact-form, #btn-enviar-contact-form, #btn-volverSimular_from_contactForm, #btn-creditHistory, #btn-volverSimular_from_contactFormResponse, #btn-volverSimular_from_creditHistory").on('click', function (e) {
+$(".preventDefault").on('click', function (e) {
     e.preventDefault();
 })
 
@@ -49,6 +49,6 @@ $("#btn-volverSimular_from_creditHistory").on('click', simularDeNuevo_from_credi
 
 // ----------------------- SIMULATOR - FORM ------------------------ Modificar cantidad de cuotas según tipo de crédito seleccionado y el monto disponible según el nivel de ingresos declarado
 
-$("#tipoCredito").on("change", adjustFormtOptions)
-$("#ingresosNetos").on("change", adjustFormtOptions)
-$(document).on("DOMContentLoaded", adjustFormtOptions) // Para que figuren opciones apenas cargue el sitio, sin que la selección necesariamente cambie
+$("#tipoCredito").on("change", adjustPaymentOptions_and_availableAmounts)
+$("#ingresosNetos").on("change", adjustPaymentOptions_and_availableAmounts)
+$(document).on("DOMContentLoaded", adjustPaymentOptions_and_availableAmounts) // Para que figuren opciones apenas cargue el sitio, sin que la selección necesariamente cambie

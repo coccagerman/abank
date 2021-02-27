@@ -7,10 +7,12 @@
 - Corregir alineación frase del hero (se rompe con pantalla minimizada)
 - Comprimir JS y CSS
 - Corregir bug de botón navbar mobile (cuando hacés click en un elemento li se acciona la animación y no debiese accionarse)
+- Reescribir función de historial de créditos en JQuery y funcion y cleanFormPaymentOptions
 
 Simulador:
 - Agregar un modal que aparezca en hover sobre cada opción, con mensaje explicativo de qué completar.
 - Vincular botón enter para que avance el formulario.
+- Bug: Cuando se ingresa un monto bajo, y luego se selecciona la opción de ignresos netos menores a 30k, el mensaje de error de ingresos bajos no desaparece.
 
 Respuesta simulador:
 - Vincular botón scape o delete para que vuelva al formulario de simulación.
