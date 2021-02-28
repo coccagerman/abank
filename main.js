@@ -31,21 +31,15 @@ $("#btn-credit_business").on('click', slideBusinessCredit)
 // ----------------------- SIMULATOR -----------------------
 // ----------------------- SIMULATOR - FORM ----------------------- Ocultar la sección actual y mostrar la siguiente a partir del onclick (como slider)
 
-$("#btn-calcularCuotas").on('click', calcularCuotas);
+$("#btn-calculatePayments").on('click', calculatePayments);
 
-$("#btn-contact-form").on('click', solicitarCredito);
+$("#btn-contact-form").on('click', requestCredit);
 
-$("#btn-volverSimular_from_simulatorResponse").on('click', simularDeNuevo_from_simulatorResponse);
+$("#btn-send-contact-form").on('click', sendContactForm);
 
-$("#btn-enviar-contact-form").on('click', enviarFormContacto);
+$("#btn-creditHistory").on('click', seeCreditHistory);
 
-$("#btn-volverSimular_from_contactForm").on('click', simularDeNuevo_from_contactForm);
-
-$("#btn-creditHistory").on('click', verHistorialCreditos);
-
-$("#btn-volverSimular_from_contactFormResponse").on('click', simularDeNuevo_from_contactFormResponse);
-
-$("#btn-volverSimular_from_creditHistory").on('click', simularDeNuevo_from_creditHistory);
+$(".btn-simulateAgain").on('click', simulateAgain);
 
 // ----------------------- SIMULATOR - FORM ------------------------ Modificar cantidad de cuotas según tipo de crédito seleccionado y el monto disponible según el nivel de ingresos declarado
 

@@ -65,7 +65,7 @@ function slideBusinessCredit () {
 // // ----------------------- SIMULADOR -----------------------
 // // ----------------------- SIMULADOR - ASIGNA VARIABLES ----------------------- Al enviar formulario de simulación, asigna valores del formulario a distintas variables que luego son reutilizadas en funciones siguientes.
 
-function asignarVariablesCredito() {
+function assingCreditVariables () {
     tipoCredito = $("#tipoCredito").val()
     monto = $("#monto").val()
     cantidadCuotas = $("#cantidadCuotas").val()
@@ -84,7 +84,7 @@ function asignarVariablesCredito() {
 // // ----------------------- SIMULADOR - SLIDERS ----------------------- Ocultar la sección actual y mostrar la siguiente a partir de onclick (como slider) / Se puede optimizar con una única función que recorra un array de secciones a medida que se aprieta el botón de avanzar. La función de volver a simular debiese ser única, ocultando la sección que está activa y activando la sección simulador.
 // Además de mover el slide, cada función ejecuta las tareas correspondientes a cada sección.
 
-function calcularCuotas () {
+function calculatePayments () {
     // Al clickear botón valida que monto solicitado esté completo y esté dentro de los parametros del credito. Si no cumple, arroja error.Si cumple, avanza.
     let amount = $("#monto").val()
     let minAmount = parseInt($("#monto").attr('min'))
@@ -95,8 +95,9 @@ function calcularCuotas () {
     $("#simulator-form").attr("class", "hiddenElement");
     $("#simulator-form-response").attr("class", "activeElement");
     // Asigna valores del formulario a variables que se utilizan luego.
-    asignarVariablesCredito()
-
+    assingCreditVariables ()
+    // Oculta mensaje de error si es que estaba activo.
+    $("#amountErrorMessage").attr("class", "displayNone")
     // Forma string y lo imprime
     let message = $("#simulator-form-response_message")
         // Resetea el valor para que se imprima de nuevo con cada simulación
@@ -110,7 +111,7 @@ function calcularCuotas () {
     }
 }
 
-function solicitarCredito () {
+function requestCredit () {
     // Mueve slide
     $("#simulator-form-response").attr("class", "hiddenElement");
     $("#contact-form").attr("class", "activeElement");
@@ -120,17 +121,11 @@ function solicitarCredito () {
     message.text(`Tipo de crédito: ${tipoCredito}
     Monto: $${monto}
     Costo: ${cantidadCuotas} cuotas de $${valorCuotas}`)
-    $("#btn-enviar-contact-form").before(message)
+    $("#btn-send-contact-form").before(message)
     message.attr("class", "creditDetails")
 }
 
-function simularDeNuevo_from_simulatorResponse () {
-    $("#simulator-form-response").attr("class", "hiddenElement");
-    $("#simulator-form").attr("class", "activeElement");
-    $("#amountErrorMessage").attr("class", "displayNone")
-}
-
-function enviarFormContacto () {
+function sendContactForm () {
     // Toma valores insertados en form y los compara contra regex correspondiente.
     let name = $("#nombre").val()
     let telephone = $("#telefono").val()
@@ -165,13 +160,7 @@ function enviarFormContacto () {
     }
 }
 
-function simularDeNuevo_from_contactForm () {
-    $("#contact-form").attr("class", "hiddenElement");
-    $("#simulator-form").attr("class", "activeElement");
-    $("#amountErrorMessage").attr("class", "displayNone")
-}
-
-function verHistorialCreditos () {
+function seeCreditHistory () {
     $("#contact-form-response").attr("class", "hiddenElement");
     $("#credit-history").attr("class", "activeElement");
 
@@ -197,43 +186,28 @@ function verHistorialCreditos () {
     document.getElementById("credit-history_table").appendChild(newRow)
 }
 
-function simularDeNuevo_from_contactFormResponse () {
-    $("#contact-form-response").attr("class", "hiddenElement");
+function simulateAgain () {
+    $("#simulator-form, #simulator-form-response, #contact-form, #contact-form-response, #credit-history").attr("class", "hiddenElement");
     $("#simulator-form").attr("class", "activeElement");
-    $("#amountErrorMessage").attr("class", "displayNone")
-}
-
-function simularDeNuevo_from_creditHistory () {
-    $("#credit-history").attr("class", "hiddenElement");
-    $("#simulator-form").attr("class", "activeElement");
-    $("#amountErrorMessage").attr("class", "displayNone")
 }
 
 // // ----------------------- SIMULADOR - FORM ------------------------ Modificar cantidad de cuotas disponibles según tipo de crédito seleccionado y modificar montos disponibles según ingresos declarados
 
-// Funciones que imprimen las opciones de cuotas según el tipo de crédito
-function populatePaymentOptions_PersonalCredit () {
-   $("#cantidadCuotas").append("<option class='paymentOption' value='6'>6 cuotas</option>")
-   $("#cantidadCuotas").append("<option class='paymentOption' value='12'>12 cuotas</option>")
-   $("#cantidadCuotas").append("<option class='paymentOption' value='18'>18 cuotas</option>")
-}
+// Función que imprime las opciones de cuotas según el tipo de crédito
+function populatePaymentOptions (creditType) {
 
-function populatePaymentOptions_PledgeCredit () {
-    $("#cantidadCuotas").append("<option class='paymentOption' value='12'>12 cuotas</option>")
-    $("#cantidadCuotas").append("<option class='paymentOption' value='24'>24 cuotas</option>")
-    $("#cantidadCuotas").append("<option class='paymentOption' value='36'>36 cuotas</option>")
-}
-
-function populatePaymentOptions_MortgageCredit () {
-    $("#cantidadCuotas").append("<option class='paymentOption' value='60'>60 cuotas</option>")
-    $("#cantidadCuotas").append("<option class='paymentOption' value='90'>90 cuotas</option>")
-    $("#cantidadCuotas").append("<option class='paymentOption' value='180'>180 cuotas</option>")
-}
-
-function populatePaymentOptions_BusinessCredit () {
-    $("#cantidadCuotas").append("<option class='paymentOption' value='24'>24 cuotas</option>")
-    $("#cantidadCuotas").append("<option class='paymentOption' value='48'>48 cuotas</option>")
-    $("#cantidadCuotas").append("<option class='paymentOption' value='48'>60 cuotas</option>")
+    if (creditType == "Personal") {
+        $("#cantidadCuotas").append("<option class='paymentOption' value='6'>6 cuotas</option>, <option class='paymentOption' value='12'>12 cuotas</option>, <option class='paymentOption' value='18'>18 cuotas</option>")
+    } 
+    else if (creditType == "Pledge") {
+        $("#cantidadCuotas").append("<option class='paymentOption' value='12'>12 cuotas</option>, <option class='paymentOption' value='24'>24 cuotas</option>, <option class='paymentOption' value='36'>36 cuotas</option>")
+    }
+    else if (creditType == "Mortgage") {
+        $("#cantidadCuotas").append("<option class='paymentOption' value='60'>60 cuotas</option>, <option class='paymentOption' value='90'>90 cuotas</option>, <option class='paymentOption' value='180'>180 cuotas</option>")
+    }
+    else {
+        $("#cantidadCuotas").append("<option class='paymentOption' value='24'>24 cuotas</option>, <option class='paymentOption' value='48'>48 cuotas</option>, <option class='paymentOption' value='60'>60 cuotas</option>")
+    }
 }
 
 // Funcion que imprime las opciones montos según el tipo de crédito y nivel de ingresos.
@@ -277,7 +251,7 @@ function cleanFormPaymentOptions() {
 
     if (document.getElementById("ingresosNetos").value != "-$30.0000") {
     document.getElementById("insuficientIncomeMessage").setAttribute("class", "displayNone")
-    document.getElementById("btn-calcularCuotas").setAttribute("class", "btn")
+    document.getElementById("btn-calculatePayments").setAttribute("class", "btn")
     document.getElementById("cantidadCuotas").removeAttribute("disabled")
     document.getElementById("monto").removeAttribute("disabled")
     }
@@ -289,7 +263,7 @@ function cleanFormPaymentOptions() {
 
     // if (document.getElementById("ingresosNetos").value != "-$30.0000") {
     // document.getElementById("insuficientIncomeMessage").setAttribute("class", "displayNone")
-    // document.getElementById("btn-calcularCuotas").setAttribute("class", "btn")
+    // document.getElementById("btn-calculatePayments").setAttribute("class", "btn")
     // document.getElementById("cantidadCuotas").removeAttribute("disabled")
     // document.getElementById("monto").removeAttribute("disabled")
     // }
@@ -303,7 +277,7 @@ function adjustPaymentOptions_and_availableAmounts () {
 
     if (netIncome == "-$30.0000") {
     $("#insuficientIncomeMessage").attr("class", "displayBlock")
-    $("#btn-calcularCuotas").attr("class", "btn-disabled")
+    $("#btn-calculatePayments").attr("class", "btn-disabled")
     modifyAvailableAmounts(netIncome, personalCredit.minAmount, personalCredit.topAmount)
     $("#cantidadCuotas").attr("disabled", true)
     $("#monto").attr("disabled", true)
@@ -311,73 +285,73 @@ function adjustPaymentOptions_and_availableAmounts () {
 
     else if (creditType == "Personal" && netIncome == "$30.000 - $50.000") {
     cleanFormPaymentOptions()
-    populatePaymentOptions_PersonalCredit()
+    populatePaymentOptions (creditType)
     modifyAvailableAmounts(netIncome, personalCredit.minAmount, personalCredit.topAmount)
     } 
     
     else if (creditType == "Personal" && netIncome == "$50.000 - $75.000") {
     cleanFormPaymentOptions()
-    populatePaymentOptions_PersonalCredit()
+    populatePaymentOptions (creditType)
     modifyAvailableAmounts(netIncome, personalCredit.minAmount, personalCredit.topAmount)
     }
 
     else if (creditType == "Personal" && netIncome == "+$75.0000") {
     cleanFormPaymentOptions()
-    populatePaymentOptions_PersonalCredit()
+    populatePaymentOptions (creditType)
     modifyAvailableAmounts(netIncome, personalCredit.minAmount, personalCredit.topAmount)
     }
 
     else if (creditType == "Pledge" && netIncome == "$30.000 - $50.000") {
     cleanFormPaymentOptions()
-    populatePaymentOptions_PledgeCredit()
+    populatePaymentOptions (creditType)
     modifyAvailableAmounts(netIncome, pledgeCredit.minAmount, pledgeCredit.topAmount)
     }
 
     else if (creditType == "Pledge" && netIncome == "$50.000 - $75.000") {
     cleanFormPaymentOptions()
-    populatePaymentOptions_PledgeCredit()
+    populatePaymentOptions (creditType)
     modifyAvailableAmounts(netIncome, pledgeCredit.minAmount, pledgeCredit.topAmount)
     }
 
     else if (creditType == "Pledge" && netIncome == "+$75.0000") {
     cleanFormPaymentOptions()
-    populatePaymentOptions_PledgeCredit()
+    populatePaymentOptions (creditType)
     modifyAvailableAmounts(netIncome, pledgeCredit.minAmount, pledgeCredit.topAmount)
     }
 
     else if (creditType == "Mortgage" && netIncome == "$30.000 - $50.000") {
     cleanFormPaymentOptions()
-    populatePaymentOptions_MortgageCredit()
+    populatePaymentOptions (creditType)
     modifyAvailableAmounts(netIncome, mortgageCredit.minAmount, mortgageCredit.topAmount)
     }
 
     else if (creditType == "Mortgage" && netIncome == "$50.000 - $75.000") {
     cleanFormPaymentOptions()
-    populatePaymentOptions_MortgageCredit()
+    populatePaymentOptions (creditType)
     modifyAvailableAmounts(netIncome, mortgageCredit.minAmount, mortgageCredit.topAmount)
     }
 
     else if (creditType == "Mortgage" && netIncome == "+$75.0000") {
     cleanFormPaymentOptions()
-    populatePaymentOptions_MortgageCredit()
+    populatePaymentOptions (creditType)
     modifyAvailableAmounts(netIncome, mortgageCredit.minAmount, mortgageCredit.topAmount)
     }
 
     else if (creditType == "Business" && netIncome == "$30.000 - $50.000") {
     cleanFormPaymentOptions()
-    populatePaymentOptions_BusinessCredit()
+    populatePaymentOptions (creditType)
     modifyAvailableAmounts(netIncome, businessCredit.minAmount, businessCredit.topAmount)
     }
 
     else if (creditType == "Business" && netIncome == "$50.000 - $75.000") {
     cleanFormPaymentOptions()
-    populatePaymentOptions_BusinessCredit()
+    populatePaymentOptions (creditType)
     modifyAvailableAmounts(netIncome, businessCredit.minAmount, businessCredit.topAmount)
     }
 
     else if (creditType == "Business" && netIncome == "+$75.0000") {
     cleanFormPaymentOptions()
-    populatePaymentOptions_BusinessCredit()
+    populatePaymentOptions (creditType)
     modifyAvailableAmounts(netIncome, businessCredit.minAmount, businessCredit.topAmount)
     }
 }
