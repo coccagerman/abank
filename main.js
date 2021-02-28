@@ -1,7 +1,7 @@
 // ----------------------- PRELOAD ANIMTION -----------------------
 
 $(window).on("load", function() {
-$(".preloader_wrapper").fadeOut(2000);
+$(".preloader_wrapper").fadeOut(1500);
 })
 
 // ----------------------- NAVBAR ----------------------- Mobile navbar animated button
@@ -43,6 +43,6 @@ $(".btn-simulateAgain").on('click', simulateAgain);
 
 // ----------------------- SIMULATOR - FORM ------------------------ Modificar cantidad de cuotas según tipo de crédito seleccionado y el monto disponible según el nivel de ingresos declarado
 
-$("#tipoCredito").on("change", adjustPaymentOptions_and_availableAmounts)
-$("#ingresosNetos").on("change", adjustPaymentOptions_and_availableAmounts)
+$("#creditType").on("change", adjustPaymentOptions_and_availableAmounts)
+$("#netIncome").on("change", adjustPaymentOptions_and_availableAmounts)
 $(document).on("DOMContentLoaded", adjustPaymentOptions_and_availableAmounts) // Para que figuren opciones apenas cargue el sitio, sin que la selección necesariamente cambie

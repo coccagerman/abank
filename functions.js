@@ -66,19 +66,19 @@ function slideBusinessCredit () {
 // // ----------------------- SIMULADOR - ASIGNA VARIABLES ----------------------- Al enviar formulario de simulación, asigna valores del formulario a distintas variables que luego son reutilizadas en funciones siguientes.
 
 function assingCreditVariables () {
-    tipoCredito = $("#tipoCredito").val()
-    monto = $("#monto").val()
-    cantidadCuotas = $("#cantidadCuotas").val()
-    if ($("#tipoCredito").val() == "Personal") {
-        tasaInteres = 1.65
-    } else if ($("#tipoCredito").val() == "Pledge") {
-        tasaInteres = 1.60
-    } else if ($("#tipoCredito").val() == "Mortgage") {
-        tasaInteres = 1.55
+    creditType = $("#creditType").val()
+    creditAmount = $("#creditAmount").val()
+    numberOfPayments = $("#numberOfPayments").val()
+    if ($("#creditType").val() == "Personal") {
+        interestRate = 1.65
+    } else if ($("#creditType").val() == "Pledge") {
+        interestRate = 1.60
+    } else if ($("#creditType").val() == "Mortgage") {
+        interestRate = 1.55
     } else {
-        tasaInteres = 1.50
+        interestRate = 1.50
     }
-    valorCuotas = parseInt((monto*tasaInteres)/cantidadCuotas)
+    paymentsValue = parseInt((creditAmount*interestRate)/numberOfPayments)
 }
 
 // // ----------------------- SIMULADOR - SLIDERS ----------------------- Ocultar la sección actual y mostrar la siguiente a partir de onclick (como slider) / Se puede optimizar con una única función que recorra un array de secciones a medida que se aprieta el botón de avanzar. La función de volver a simular debiese ser única, ocultando la sección que está activa y activando la sección simulador.
@@ -86,9 +86,9 @@ function assingCreditVariables () {
 
 function calculatePayments () {
     // Al clickear botón valida que monto solicitado esté completo y esté dentro de los parametros del credito. Si no cumple, arroja error.Si cumple, avanza.
-    let amount = $("#monto").val()
-    let minAmount = parseInt($("#monto").attr('min'))
-    let maxAmount = parseInt($("#monto").attr('max'))
+    let amount = $("#creditAmount").val()
+    let minAmount = parseInt($("#creditAmount").attr('min'))
+    let maxAmount = parseInt($("#creditAmount").attr('max'))
 
     if (amount >= minAmount && amount <= maxAmount) {
     // Mueve slide
@@ -102,7 +102,7 @@ function calculatePayments () {
     let message = $("#simulator-form-response_message")
         // Resetea el valor para que se imprima de nuevo con cada simulación
         message.text("")
-        message.text(`Para solicitar un crédito ${tipoCredito} por $${monto} a pagar en ${cantidadCuotas} cuotas, deberá pagar ${cantidadCuotas} cuotas de $${valorCuotas}.`)
+        message.text(`Para solicitar un crédito ${creditType} por $${creditAmount} a pagar en ${numberOfPayments} cuotas, deberá pagar ${numberOfPayments} cuotas de $${paymentsValue}.`)
         $("#btn-contact-form").before(message)
     }
     
@@ -118,17 +118,17 @@ function requestCredit () {
     // Toma valores del formulario de simulación, forma string y lo imprime en un nodo
     let message = $("#creditQuery-data")
     message.text("")
-    message.text(`Tipo de crédito: ${tipoCredito}
-    Monto: $${monto}
-    Costo: ${cantidadCuotas} cuotas de $${valorCuotas}`)
+    message.text(`Tipo de crédito: ${creditType}
+    Monto: $${creditAmount}
+    Costo: ${numberOfPayments} cuotas de $${paymentsValue}`)
     $("#btn-send-contact-form").before(message)
     message.attr("class", "creditDetails")
 }
 
 function sendContactForm () {
     // Toma valores insertados en form y los compara contra regex correspondiente.
-    let name = $("#nombre").val()
-    let telephone = $("#telefono").val()
+    let name = $("#name").val().trim()
+    let telephone = $("#telephone").val()
     let email = $("#email").val()
     let nameValidation = validateInput(regex.name, name)
     let telephoneValidation = validateInput(regex.telephone, telephone)
@@ -146,17 +146,16 @@ function sendContactForm () {
     $("#contact-form-response").attr("class", "activeElement");
 
     // Toma valores del formulario de contacto, forma string y lo imprime en un nodo.
-    let nombre = $("#nombre").val().trim()
     let message = $("#contact-form-response_message-p")
     message.text("")
-    message.text(`Gracias, ${nombre}!
+    message.text(`Gracias, ${name}!
     A la brevedad nos comunicaremos con vos para adjudicar tu crédito.`)
 
     // Almacena variables del crédito en sessionStorage para luego mostrarlo en historial.
-    sessionStorage.setItem('tipoCredito', tipoCredito)
-    sessionStorage.setItem('monto', monto)
-    sessionStorage.setItem('cantidadCuotas', cantidadCuotas)
-    sessionStorage.setItem('valorCuotas', valorCuotas)
+    sessionStorage.setItem('creditType', creditType)
+    sessionStorage.setItem('monto', creditAmount)
+    sessionStorage.setItem('cantidadCuotas', numberOfPayments)
+    sessionStorage.setItem('valorCuotas', paymentsValue)
     }
 }
 
@@ -167,7 +166,7 @@ function seeCreditHistory () {
     // Toma variables del crédito almacenadas en sessionStorage y los imprime en tabla de historial
     let newRow = document.createElement("tr")
     let tdTipo = document.createElement("td")
-    let contenidoTipo = document.createTextNode(sessionStorage.getItem('tipoCredito'))
+    let contenidoTipo = document.createTextNode(sessionStorage.getItem('creditType'))
     tdTipo.appendChild(contenidoTipo)
     let tdMonto = document.createElement("td")
     let contenidoMonto = document.createTextNode(`$${sessionStorage.getItem('monto')}`)
@@ -197,47 +196,47 @@ function simulateAgain () {
 function populatePaymentOptions (creditType) {
 
     if (creditType == "Personal") {
-        $("#cantidadCuotas").append("<option class='paymentOption' value='6'>6 cuotas</option>, <option class='paymentOption' value='12'>12 cuotas</option>, <option class='paymentOption' value='18'>18 cuotas</option>")
+        $("#numberOfPayments").append("<option class='paymentOption' value='6'>6 cuotas</option>, <option class='paymentOption' value='12'>12 cuotas</option>, <option class='paymentOption' value='18'>18 cuotas</option>")
     } 
     else if (creditType == "Pledge") {
-        $("#cantidadCuotas").append("<option class='paymentOption' value='12'>12 cuotas</option>, <option class='paymentOption' value='24'>24 cuotas</option>, <option class='paymentOption' value='36'>36 cuotas</option>")
+        $("#numberOfPayments").append("<option class='paymentOption' value='12'>12 cuotas</option>, <option class='paymentOption' value='24'>24 cuotas</option>, <option class='paymentOption' value='36'>36 cuotas</option>")
     }
     else if (creditType == "Mortgage") {
-        $("#cantidadCuotas").append("<option class='paymentOption' value='60'>60 cuotas</option>, <option class='paymentOption' value='90'>90 cuotas</option>, <option class='paymentOption' value='180'>180 cuotas</option>")
+        $("#numberOfPayments").append("<option class='paymentOption' value='60'>60 cuotas</option>, <option class='paymentOption' value='90'>90 cuotas</option>, <option class='paymentOption' value='180'>180 cuotas</option>")
     }
     else {
-        $("#cantidadCuotas").append("<option class='paymentOption' value='24'>24 cuotas</option>, <option class='paymentOption' value='48'>48 cuotas</option>, <option class='paymentOption' value='60'>60 cuotas</option>")
+        $("#numberOfPayments").append("<option class='paymentOption' value='24'>24 cuotas</option>, <option class='paymentOption' value='48'>48 cuotas</option>, <option class='paymentOption' value='60'>60 cuotas</option>")
     }
 }
 
 // Funcion que imprime las opciones montos según el tipo de crédito y nivel de ingresos.
 
-function modifyAvailableAmounts (ingresosNetos, montoMinimo, montoMaximo) {
-    let monto_tittle = $("#monto_tittle")
-    monto_tittle.text("") // Resetea encabezado para que se vuelva imprimir luego de cada cambio en los parámetros.
+function modifyAvailableAmounts (netIncome, minAmount, maxAmount) {
+    let creditAmount_tittle = $("#creditAmount_tittle")
+    creditAmount_tittle.text("") // Resetea encabezado para que se vuelva imprimir luego de cada cambio en los parámetros.
     // identificar nivel de ingresos
-    if (ingresosNetos == "-$30.0000") {
-    monto_tittle.text("Monto a solicitar")
+    if (netIncome == "-$30.0000") {
+    creditAmount_tittle.text("Monto a solicitar")
     } 
     
-    else if (ingresosNetos == "$30.000 - $50.000") {
+    else if (netIncome == "$30.000 - $50.000") {
     // Calcular los montos dispnibles para cada crédito y modificarlos en el input del form
-    $("#monto").attr("min", montoMinimo)
-    $("#monto").attr("max", montoMaximo*0.5)
+    $("#creditAmount").attr("min", minAmount)
+    $("#creditAmount").attr("max", maxAmount*0.5)
     // imprimir los montos dispnibles para cada crédito en un mensaje
-    monto_tittle.text(`Monto a solicitar (Montos disponibles: $${montoMinimo} - $${montoMaximo*0.5})`)
+    creditAmount_tittle.text(`Monto a solicitar (Montos disponibles: $${minAmount} - $${maxAmount*0.5})`)
     } 
     
-    else if (ingresosNetos == "$50.000 - $75.000") {
-    $("#monto").attr("min", montoMinimo)
-    $("#monto").attr("max", montoMaximo*0.75)
-    monto_tittle.text(`Monto a solicitar (Montos disponibles: $${montoMinimo} - $${montoMaximo*0.75})`)
+    else if (netIncome == "$50.000 - $75.000") {
+    $("#creditAmount").attr("min", minAmount)
+    $("#creditAmount").attr("max", maxAmount*0.75)
+    creditAmount_tittle.text(`Monto a solicitar (Montos disponibles: $${minAmount} - $${maxAmount*0.75})`)
     } 
     
-    else if (ingresosNetos == "+$75.0000") {
-    $("#monto").attr("min", montoMinimo)
-    $("#monto").attr("max", montoMaximo)
-    monto_tittle.text(`Monto a solicitar (Montos disponibles: $${montoMinimo} - $${montoMaximo})`)
+    else if (netIncome == "+$75.0000") {
+    $("#creditAmount").attr("min", minAmount)
+    $("#creditAmount").attr("max", maxAmount)
+    creditAmount_tittle.text(`Monto a solicitar (Montos disponibles: $${minAmount} - $${maxAmount})`)
     }
 }
 
@@ -246,25 +245,25 @@ function modifyAvailableAmounts (ingresosNetos, montoMinimo, montoMaximo) {
 function cleanFormPaymentOptions() {
     payomentOptions = document.getElementsByClassName("paymentOption")
     for (let i = 0; i < payomentOptions.length; i) {
-    document.getElementById("cantidadCuotas").removeChild(payomentOptions[i])
+    document.getElementById("numberOfPayments").removeChild(payomentOptions[i])
     }
 
-    if (document.getElementById("ingresosNetos").value != "-$30.0000") {
+    if (document.getElementById("netIncome").value != "-$30.0000") {
     document.getElementById("insuficientIncomeMessage").setAttribute("class", "displayNone")
     document.getElementById("btn-calculatePayments").setAttribute("class", "btn")
-    document.getElementById("cantidadCuotas").removeAttribute("disabled")
-    document.getElementById("monto").removeAttribute("disabled")
+    document.getElementById("numberOfPayments").removeAttribute("disabled")
+    document.getElementById("creditAmount").removeAttribute("disabled")
     }
 
     // payomentOptions = document.getElementsByClassName("paymentOption")
     // for (let i = 0; i < payomentOptions.length; i) {
-    // document.getElementById("cantidadCuotas").removeChild(payomentOptions[i])
+    // document.getElementById("numberOfPayments").removeChild(payomentOptions[i])
     // }
 
-    // if (document.getElementById("ingresosNetos").value != "-$30.0000") {
+    // if (document.getElementById("netIncome").value != "-$30.0000") {
     // document.getElementById("insuficientIncomeMessage").setAttribute("class", "displayNone")
     // document.getElementById("btn-calculatePayments").setAttribute("class", "btn")
-    // document.getElementById("cantidadCuotas").removeAttribute("disabled")
+    // document.getElementById("numberOfPayments").removeAttribute("disabled")
     // document.getElementById("monto").removeAttribute("disabled")
     // }
 }
@@ -272,15 +271,15 @@ function cleanFormPaymentOptions() {
 // Función que ajusta las opciones de cantidad de cuotas y montos disponibles del formulario según el tipo de crédito seleccionado y el nivel de ingresos declarado.
 
 function adjustPaymentOptions_and_availableAmounts () {
-    creditType = $("#tipoCredito").val()
-    netIncome = $("#ingresosNetos").val()
+    creditType = $("#creditType").val()
+    netIncome = $("#netIncome").val()
 
     if (netIncome == "-$30.0000") {
     $("#insuficientIncomeMessage").attr("class", "displayBlock")
     $("#btn-calculatePayments").attr("class", "btn-disabled")
     modifyAvailableAmounts(netIncome, personalCredit.minAmount, personalCredit.topAmount)
-    $("#cantidadCuotas").attr("disabled", true)
-    $("#monto").attr("disabled", true)
+    $("#numberOfPayments").attr("disabled", true)
+    $("#creditAmount").attr("disabled", true)
     }
 
     else if (creditType == "Personal" && netIncome == "$30.000 - $50.000") {
