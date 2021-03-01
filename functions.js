@@ -1,4 +1,4 @@
-// // ----------------------- MOBILE NAVBAR -----------------------
+// // ----------------------- MOBILE NAVBAR ----------------------- Mobile navbar animated button
 
 function displayMobileMenu () {
 
@@ -28,16 +28,16 @@ function hideMobileMenu () {
     $('body').removeClass('fixed-position');
 }
 
-// // ----------------------- CREDITOS - SLIDERS ----------------------- Ocultar la sección actual y mostrar la siguiente a partir de onclick (como slider) / Se puede optimizar con una única función que recorra un array de secciones a medida que se aprietan los botones, y que la función detecte el href del botón, llevándote al slide de ese href.
+// // ----------------------- CREDITS - SLIDERS ----------------------- Hide active section and show next section when click (like a slider)
 
 function slidePersonalCredit () {
-    // Tomar sección vigente y darle class hiddenElement.
+    // Take active section and assign it class hiddenElement.
     $(".activeElement").get(0).setAttribute("class", "hiddenElement");
-    // Tomar botón active y darle class inactive.
+    // Take active button and assign it class inactive.
     $(".active").get(0).setAttribute("class", "inactive");
-    // Tomar id de la sección seleccionada y darle class activeElement
+    // Take ID of the selected section and assign it class activeElement.
     $("#credit_personal").attr("class", "activeElement");
-    // Tomar botón de la clase seleccionada y darle class active.
+    // Take button of the selected section and assign it class active.
     $("#btn-credit_personal").attr("class", "active");
 }
 
@@ -62,8 +62,7 @@ function slideBusinessCredit () {
     $("#btn-credit_business").attr("class", "active");
 }
 
-// // ----------------------- SIMULADOR -----------------------
-// // ----------------------- SIMULADOR - ASIGNA VARIABLES ----------------------- Al enviar formulario de simulación, asigna valores del formulario a distintas variables que luego son reutilizadas en funciones siguientes.
+// // ----------------------- SIMULATOR - ASIGN VARIABLES ----------------------- When simulator form is sent, it assigns the form's values to variables that are used after.
 
 function assingCreditVariables () {
     creditType = $("#creditType").val()
@@ -81,29 +80,27 @@ function assingCreditVariables () {
     paymentsValue = parseInt((creditAmount*interestRate)/numberOfPayments)
 }
 
-// // ----------------------- SIMULADOR - SLIDERS ----------------------- Ocultar la sección actual y mostrar la siguiente a partir de onclick (como slider) / Se puede optimizar con una única función que recorra un array de secciones a medida que se aprieta el botón de avanzar. La función de volver a simular debiese ser única, ocultando la sección que está activa y activando la sección simulador.
-// Además de mover el slide, cada función ejecuta las tareas correspondientes a cada sección.
+// // ----------------------- SIMULATOR - SLIDERS ----------------------- Hide active section and show next section when click (like a slider) - Besides mooving the slider, each function performs the tasks correspondent to each section.
 
 function calculatePayments () {
-    // Al clickear botón valida que monto solicitado esté completo y esté dentro de los parametros del credito. Si no cumple, arroja error.Si cumple, avanza.
+    // When calculate button is clicked it checks that the credit amount is complete and between the allowed parameters. When not, shows error message.
     let amount = $("#creditAmount").val()
     let minAmount = parseInt($("#creditAmount").attr('min'))
     let maxAmount = parseInt($("#creditAmount").attr('max'))
 
     if (amount >= minAmount && amount <= maxAmount) {
-    // Mueve slide
+    // Moves slide.
     $("#simulator-form").attr("class", "hiddenElement");
     $("#simulator-form-response").attr("class", "activeElement");
-    // Asigna valores del formulario a variables que se utilizan luego.
+    // Assigns form's values to variables that are used later.
     assingCreditVariables ()
-    // Oculta mensaje de error si es que estaba activo.
+    // Hides error message.
     $("#amountErrorMessage").attr("class", "displayNone")
-    // Forma string y lo imprime
+    // Forms string and prints it.
     let message = $("#simulator-form-response_message")
-        // Resetea el valor para que se imprima de nuevo con cada simulación
-        message.text("")
-        message.text(`Para solicitar un crédito ${creditType} por $${creditAmount} a pagar en ${numberOfPayments} cuotas, deberá pagar ${numberOfPayments} cuotas de $${paymentsValue}.`)
-        $("#btn-contact-form").before(message)
+    message.text("") // Resets value so it prints again with each simulation.
+    message.text(`Para solicitar un crédito ${creditType} por $${creditAmount} a pagar en ${numberOfPayments} cuotas, deberá pagar ${numberOfPayments} cuotas de $${paymentsValue}.`)
+    $("#btn-contact-form").before(message)
     }
     
     else {
@@ -112,10 +109,10 @@ function calculatePayments () {
 }
 
 function requestCredit () {
-    // Mueve slide
+    // Moves slide.
     $("#simulator-form-response").attr("class", "hiddenElement");
     $("#contact-form").attr("class", "activeElement");
-    // Toma valores del formulario de simulación, forma string y lo imprime en un nodo
+    // Takes simulator form values and prints them in a message.
     let message = $("#creditQuery-data")
     message.text("")
     message.text(`Tipo de crédito: ${creditType}
@@ -126,7 +123,7 @@ function requestCredit () {
 }
 
 function sendContactForm () {
-    // Toma valores insertados en form y los compara contra regex correspondiente.
+    // Takes the values inserted in the form and compares the to the corresponding regex.
     let name = $("#name").val().trim()
     let telephone = $("#telephone").val()
     let email = $("#email").val()
@@ -139,19 +136,19 @@ function sendContactForm () {
     }
 
     else {
-    // Oculta mensaje de error.
+    // Hides error message.
     $("#contactForm_ErrorMessage").attr("class", "displayNone")
-    // Mueve slide.
+    // Moves slide.
     $("#contact-form").attr("class", "hiddenElement");
     $("#contact-form-response").attr("class", "activeElement");
 
-    // Toma valores del formulario de contacto, forma string y lo imprime en un nodo.
+    // Takes contact form's values, forms a strings and prints them in a message.
     let message = $("#contact-form-response_message-p")
     message.text("")
     message.text(`Gracias, ${name}!
     A la brevedad nos comunicaremos con vos para adjudicar tu crédito.`)
 
-    // Almacena variables del crédito en sessionStorage para luego mostrarlo en historial.
+    // Stores credit variables in sessionStorage to show them in credit history afterwards.
     sessionStorage.setItem('creditType', creditType)
     sessionStorage.setItem('monto', creditAmount)
     sessionStorage.setItem('cantidadCuotas', numberOfPayments)
@@ -163,7 +160,7 @@ function seeCreditHistory () {
     $("#contact-form-response").attr("class", "hiddenElement");
     $("#credit-history").attr("class", "activeElement");
 
-    // Toma variables del crédito almacenadas en sessionStorage y los imprime en tabla de historial
+    // Takes the credit variables stored in sessionStorage and prints them in a table.
     let newRow = document.createElement("tr")
     let tdTipo = document.createElement("td")
     let contenidoTipo = document.createTextNode(sessionStorage.getItem('creditType'))
@@ -190,9 +187,9 @@ function simulateAgain () {
     $("#simulator-form").attr("class", "activeElement");
 }
 
-// // ----------------------- SIMULADOR - FORM ------------------------ Modificar cantidad de cuotas disponibles según tipo de crédito seleccionado y modificar montos disponibles según ingresos declarados
+// // ----------------------- SIMULATOR - FORM ------------------------ Modiffy number of payments according to type of credit and modify the available amount acording to the net income.
 
-// Función que imprime las opciones de cuotas según el tipo de crédito
+// Function that prints the payment options according to the type of credit seleted.
 function populatePaymentOptions (creditType) {
 
     if (creditType == "Personal") {
@@ -209,21 +206,20 @@ function populatePaymentOptions (creditType) {
     }
 }
 
-// Funcion que imprime las opciones montos según el tipo de crédito y nivel de ingresos.
-
+// Function that prints the available amounts according to the type of credit seleted and the net income declared.
 function modifyAvailableAmounts (netIncome, minAmount, maxAmount) {
     let creditAmount_tittle = $("#creditAmount_tittle")
-    creditAmount_tittle.text("") // Resetea encabezado para que se vuelva imprimir luego de cada cambio en los parámetros.
-    // identificar nivel de ingresos
+    creditAmount_tittle.text("") // Resets the label so that it prints again after each change of parameters.
+    // Identify net income level.
     if (netIncome == "-$30.0000") {
     creditAmount_tittle.text("Monto a solicitar")
     } 
     
     else if (netIncome == "$30.000 - $50.000") {
-    // Calcular los montos dispnibles para cada crédito y modificarlos en el input del form
+    // Calculate available amounts for each credit and modify the min and max attributes of the form.
     $("#creditAmount").attr("min", minAmount)
     $("#creditAmount").attr("max", maxAmount*0.5)
-    // imprimir los montos dispnibles para cada crédito en un mensaje
+    // Print the available amounts for each credit in a message.
     creditAmount_tittle.text(`Monto a solicitar (Montos disponibles: $${minAmount} - $${maxAmount*0.5})`)
     } 
     
@@ -240,8 +236,7 @@ function modifyAvailableAmounts (netIncome, minAmount, maxAmount) {
     }
 }
 
-// Función que borra las opciones de cuotas y el mensaje de lowIncome
-
+// Function that resets the payment options and hides the low income error message.
 function cleanFormPaymentOptions() {
     payomentOptions = document.getElementsByClassName("paymentOption")
     for (let i = 0; i < payomentOptions.length; i) {
@@ -268,8 +263,7 @@ function cleanFormPaymentOptions() {
     // }
 }
 
-// Función que ajusta las opciones de cantidad de cuotas y montos disponibles del formulario según el tipo de crédito seleccionado y el nivel de ingresos declarado.
-
+// Function that modifies the options of the form according to the type of credit, and net income declared, using cleanFormPaymentOptions(), populatePaymentOptions() and modifyAvailableAmounts() functions.
 function adjustPaymentOptions_and_availableAmounts () {
     creditType = $("#creditType").val()
     netIncome = $("#netIncome").val()

@@ -4,7 +4,7 @@ $(window).on("load", function() {
 $(".preloader_wrapper").fadeOut(1500);
 })
 
-// ----------------------- NAVBAR ----------------------- Mobile navbar animated button
+// ----------------------- MOBILE NAVBAR ----------------------- Mobile navbar animated button
 
 let hamburguer = 0;
 
@@ -12,13 +12,13 @@ $('.hamburguer-icon').click(displayMobileMenu);
 
 $('#menu ul li').click(hideMobileMenu);
 
-// ----------------------- CREDITS & SIMULATOR ----------------------- preventDefault de botones (evita que resetee página luego del click) 
+// ----------------------- CREDITS & SIMULATOR ----------------------- Buttons preventDefault
 
 $(".preventDefault").on('click', function (e) {
     e.preventDefault();
 })
 
-// ----------------------- CREDITS ----------------------- Ocultar la sección actual y mostrar la siguiente a partir del onclick (como slider)
+// ----------------------- CREDITS ----------------------- Hide active section and show next section when click (like a slider)
 
 $("#btn-credit_personal").on('click', slidePersonalCredit)
 
@@ -28,8 +28,7 @@ $("#btn-credit_mortgage").on('click', slideMortgageCredit)
 
 $("#btn-credit_business").on('click', slideBusinessCredit)
 
-// ----------------------- SIMULATOR -----------------------
-// ----------------------- SIMULATOR - FORM ----------------------- Ocultar la sección actual y mostrar la siguiente a partir del onclick (como slider)
+// ----------------------- SIMULATOR ----------------------- Hide active section and show next section when click (like a slider)
 
 $("#btn-calculatePayments").on('click', calculatePayments);
 
@@ -41,8 +40,8 @@ $("#btn-creditHistory").on('click', seeCreditHistory);
 
 $(".btn-simulateAgain").on('click', simulateAgain);
 
-// ----------------------- SIMULATOR - FORM ------------------------ Modificar cantidad de cuotas según tipo de crédito seleccionado y el monto disponible según el nivel de ingresos declarado
+// ----------------------- SIMULATOR - FORM ------------------------ Modiffy number of payments according to type of credit and modify the available amount acording to the net income
 
 $("#creditType").on("change", adjustPaymentOptions_and_availableAmounts)
 $("#netIncome").on("change", adjustPaymentOptions_and_availableAmounts)
-$(document).on("DOMContentLoaded", adjustPaymentOptions_and_availableAmounts) // Para que figuren opciones apenas cargue el sitio, sin que la selección necesariamente cambie
+$(document).on("DOMContentLoaded", adjustPaymentOptions_and_availableAmounts) // This shows options as soon as the page loads, without any variable necesarily changing

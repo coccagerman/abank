@@ -8,6 +8,7 @@
 - Comprimir JS y CSS
 - Corregir bug de botón navbar mobile (cuando hacés click en un elemento li se acciona la animación y no debiese accionarse)
 - Reescribir función de historial de créditos en JQuery y funcion y cleanFormPaymentOptions
+- Chequear si se puede reemplazar data "manual" de las funciones con data de objetos creados.
 
 Simulador:
 - Agregar un modal que aparezca en hover sobre cada opción, con mensaje explicativo de qué completar.
