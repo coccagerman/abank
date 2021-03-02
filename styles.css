@@ -742,12 +742,14 @@ header .icon {
 
 header .header_logo {
   width: 20rem;
-  margin-left: -25rem;
+  position: absolute;
+  top: .25em;
+  left: 2rem;
 }
 
 header ul {
   list-style: none;
-  margin-right: 2rem;
+  margin: 1rem 2rem .75rem 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -795,10 +797,10 @@ header ul a:hover::after {
 }
 
 .hero p {
-  position: relative;
+  position: absolute;
+  bottom: .5rem;
   z-index: 2;
-  top: 18rem;
-  margin: 0 0 2rem 3rem;
+  margin: 0 0 2rem 2.5rem;
   font-family: 'Raleway', sans-serif;
   font-size: 5rem;
   font-weight: 600;
@@ -1333,6 +1335,9 @@ footer .footer_container .usuariosFinancieros {
     left: 0%;
   }
   header .header_logo {
+    position: static;
+    top: 0;
+    left: 0;
     width: 15rem;
     margin: 0 15rem 0 0;
     z-index: 4;

@@ -8,6 +8,9 @@
     header{
 
         .header_logo {
+        position: static;
+        top: 0;
+        left: 0;
         width: 15rem;
         margin: 0 15rem 0 0;
         z-index: 4;
