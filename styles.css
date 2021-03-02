@@ -1339,7 +1339,7 @@ footer .footer_container .usuariosFinancieros {
     top: 0;
     left: 0;
     width: 15rem;
-    margin: 0 15rem 0 0;
+    margin: .15rem 15rem 0 0;
     z-index: 4;
   }
   header nav {
@@ -1424,7 +1424,7 @@ footer .footer_container .usuariosFinancieros {
     z-index: 2;
     top: 2.5rem;
     margin: 0 0 2rem 1rem;
-    font-size: 4rem;
+    font-size: 3.75rem;
     max-width: 7rem;
   }
   .aboutUs {
@@ -1602,6 +1602,96 @@ footer .footer_container .usuariosFinancieros {
   }
   footer .footer_container .usuariosFinancieros {
     display: none;
+  }
+}
+
+/*------------------- TABLET ------------------- */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .activeElement {
+    left: 0%;
+  }
+  header .header_logo {
+    position: static;
+    width: 15rem;
+    margin: .5rem 33rem 0 0;
+    z-index: 4;
+  }
+  header nav {
+    position: fixed;
+    left: -100%;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    overflow-y: hidden;
+    background: #266FF5;
+    -webkit-transition: left 0.5s;
+    transition: left 0.5s;
+    z-index: 3;
+  }
+  header nav ul {
+    width: 100%;
+    height: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  header nav ul li {
+    margin: 1rem 0;
+  }
+  header nav ul a {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: white;
+  }
+  header .menu-active {
+    left: 0;
+    -webkit-transition: left .5s;
+    transition: left .5s;
+  }
+  header .hamburguer-icon {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    margin: auto;
+    z-index: 4;
+  }
+  header .hamburguer-icon .line {
+    background: white;
+    border-radius: .5rem;
+    width: 40px;
+    height: 6px;
+    margin-bottom: 8px;
+    -webkit-transition: .5s;
+    transition: .5s;
+  }
+  header .hamburguer-icon .top {
+    /* IE 9 */
+    -webkit-transform: rotate(-45deg);
+    /* Chrome, Safari, Opera */
+    transform: rotate(-45deg);
+    top: 18px;
+    position: relative;
+  }
+  header .hamburguer-icon .center {
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: visibility 0s 0,3s, opacity 2s linear;
+    transition: visibility 0s 0,3s, opacity 2s linear;
+  }
+  header .hamburguer-icon .bottom {
+    /* IE 9 */
+    -webkit-transform: rotate(140deg);
+    /* Chrome, Safari, Opera */
+    transform: rotate(45deg);
+    top: -10px;
+    position: relative;
   }
 }
 /*# sourceMappingURL=styles.css.map */
