@@ -4,7 +4,7 @@ function displayMobileMenu () {
 
     $('#menu').toggleClass('menu-active');
     $('body').toggleClass('fixed-position');
-
+    
     if (hamburguer==0) {
     hamburguer+=1;
     $("#top").addClass('top');
@@ -115,11 +115,11 @@ function requestCredit () {
     // Takes simulator form values and prints them in a message.
     let message = $("#creditQuery-data")
     message.text("")
-    message.text(`Tipo de crédito: ${creditType}
+    message.text(`
+    Tipo de crédito: ${creditType}
     Monto: $${creditAmount}
     Costo: ${numberOfPayments} cuotas de $${paymentsValue}`)
     $("#btn-send-contact-form").before(message)
-    message.attr("class", "creditDetails")
 }
 
 function sendContactForm () {
@@ -187,6 +187,36 @@ function simulateAgain () {
     $("#simulator-form").attr("class", "activeElement");
 }
 
+// ----------------------- SIMULATOR - SLIDERS ----------------------- Vinculates enter key to advance the form and esc key to move back to the first section
+
+function moveForm_wKeyboard (e) {
+
+    if (e.which == 13 && $('#simulator-form').hasClass('activeElement') == true) {
+        e.preventDefault();
+        calculatePayments()
+    }
+    else if (e.which == 13 && $('#simulator-form-response').hasClass('activeElement') == true) {
+        e.preventDefault();
+        requestCredit()
+    }
+    else if (e.which == 13 && $('#contact-form').hasClass('activeElement') == true) {
+        e.preventDefault();
+        sendContactForm()
+    }
+    else if (e.which == 13 && $('#contact-form-response').hasClass('activeElement') == true) {
+        e.preventDefault();
+        seeCreditHistory()
+    }
+    else if (e.which == 13 && $('#credit-history').hasClass('activeElement') == true) {
+        e.preventDefault();
+        simulateAgain()
+    }
+    else if (e.which == 27) {
+        e.preventDefault();
+        simulateAgain()
+    }
+}
+
 // // ----------------------- SIMULATOR - FORM ------------------------ Modiffy number of payments according to type of credit and modify the available amount acording to the net income.
 
 // Function that prints the payment options according to the type of credit seleted.
@@ -249,18 +279,6 @@ function cleanFormPaymentOptions() {
     document.getElementById("numberOfPayments").removeAttribute("disabled")
     document.getElementById("creditAmount").removeAttribute("disabled")
     }
-
-    // payomentOptions = document.getElementsByClassName("paymentOption")
-    // for (let i = 0; i < payomentOptions.length; i) {
-    // document.getElementById("numberOfPayments").removeChild(payomentOptions[i])
-    // }
-
-    // if (document.getElementById("netIncome").value != "-$30.0000") {
-    // document.getElementById("insuficientIncomeMessage").setAttribute("class", "displayNone")
-    // document.getElementById("btn-calculatePayments").setAttribute("class", "btn")
-    // document.getElementById("numberOfPayments").removeAttribute("disabled")
-    // document.getElementById("monto").removeAttribute("disabled")
-    // }
 }
 
 // Function that modifies the options of the form according to the type of credit, and net income declared, using cleanFormPaymentOptions(), populatePaymentOptions() and modifyAvailableAmounts() functions.
@@ -269,6 +287,7 @@ function adjustPaymentOptions_and_availableAmounts () {
     netIncome = $("#netIncome").val()
 
     if (netIncome == "-$30.0000") {
+    $("#amountErrorMessage").attr("class", "displayNone")
     $("#insuficientIncomeMessage").attr("class", "displayBlock")
     $("#btn-calculatePayments").attr("class", "btn-disabled")
     modifyAvailableAmounts(netIncome, personalCredit.minAmount, personalCredit.topAmount)

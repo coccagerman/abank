@@ -40,8 +40,13 @@ $("#btn-creditHistory").on('click', seeCreditHistory);
 
 $(".btn-simulateAgain").on('click', simulateAgain);
 
+// ----------------------- SIMULATOR ----------------------- Vinculates enter key to advance the form and esc key to move back to the first section
+
+$(document).keydown(moveForm_wKeyboard)
+
 // ----------------------- SIMULATOR - FORM ------------------------ Modiffy number of payments according to type of credit and modify the available amount acording to the net income
+
 
 $("#creditType").on("change", adjustPaymentOptions_and_availableAmounts)
 $("#netIncome").on("change", adjustPaymentOptions_and_availableAmounts)
-$(document).on("DOMContentLoaded", adjustPaymentOptions_and_availableAmounts) // This shows options as soon as the page loads, without any variable necesarily changing
+$(document).on("DOMContentLoaded", adjustPaymentOptions_and_availableAmounts)  // This shows options as soon as the page loads, without any variable necesarily changing

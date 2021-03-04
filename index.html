@@ -172,7 +172,7 @@
     <!--------------- SIMULAOR --------------->
 
     <section class="container simulator" id="simulator">
-        
+        <h2>Simulá tus cuotas</h2>
         <article class="simulator-form activeElement" id="simulator-form">
             <p>Utilizá nuestro simulador de créditos para conocer los montos disponibles según tu nivel de ingresos y los costos de las cuotas.</p>
             <div>
@@ -199,25 +199,22 @@
 
                     <label for="creditAmount" id="creditAmount_tittle"></label>
                     <input id="creditAmount" type="number" step="5000">
-                    <a href="#" class="btn isDesabled preventDefault" id="btn-calculatePayments">Calcular cuotas</a>
+                    <a href="#" class="btn isDesabled preventDefault advanceForm-btn" id="btn-calculatePayments">Calcular cuotas</a>
                 </form>
                 <p id="amountErrorMessage" class="displayNone">Por favor verifique ingresar el monto que  desea cotizar y que el mismo se encuentre dentro de los límites de su nivel de ingresos y el tipo de crédito correspondiente.</p>
                 <p id="insuficientIncomeMessage" class="displayNone">Lo sentimos, no puede solicitar un crédito con su nivel de ingresos actual.</p>
-                 
             </div>
-
       </article>
 
         <article class="simulator-form-response hiddenElement" id="simulator-form-response">
             <p id="simulator-form-response_message"></p>
-            <a href="#" class="btn preventDefault" id="btn-contact-form">Solicitar crédito</a>
+            <a href="#" class="btn preventDefault advanceForm-btn" id="btn-contact-form">Solicitar crédito</a>
             <a href="#" class="btn-grey preventDefault btn-simulateAgain">Volver a simular</a>
         </article>
 
-        <article class="contact-form hiddenElement" id="contact-form">
-            
+        <article class="contact-form hiddenElement" id="contact-form">       
             <p>Completá los siguientes datos y nos comunicaremos a la brevedad para adjudicar tu crédito.</p>
-            <p id="creditQuery-data"></p>
+            <pre id="creditQuery-data"></pre>
             <form id="contact-form_form" action="#" method="get">
                 <label for="name">Nombre</label>
                 <input type="text" placeholder="Nombre" id="name">
@@ -228,7 +225,7 @@
                 <label for="email">Email</label>
                 <input type="email" placeholder="Email" id="email">
 
-                <a href="#" class="btn preventDefault" id="btn-send-contact-form">Enviar</a>
+                <a href="#" class="btn preventDefault advanceForm-btn" id="btn-send-contact-form">Enviar</a>
                 <a href="#" class="btn-grey preventDefault btn-simulateAgain">Volver a simular</a>
 
                 <p id="contactForm_ErrorMessage" class="displayNone">Por favor corrobore los datos ingresados en el formulario.</p>
@@ -241,7 +238,7 @@
                 <img src="images/icons/complete.png" alt="Ícono de completo.">
                 <p id="contact-form-response_message-p"></p>
             </div>
-            <a href="#" class="btn preventDefault" id="btn-creditHistory">Ver historial de créditos cotizados</a>
+            <a href="#" class="btn preventDefault advanceForm-btn" id="btn-creditHistory">Ver historial de créditos cotizados</a>
             <a href="#" class="btn-grey preventDefault btn-simulateAgain">Volver a simular</a>
         </article>
 
