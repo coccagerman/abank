@@ -8,6 +8,7 @@
 - Armar versión tablet.
 - Chequear alineación de IDs al momento de pulsar botones del navbar (algunos quedan muy por encima)
 - Chequear si se pueden Incorporar puntos a los strings de montos para que se identifiquen fácilmente miles y millones (ej: $10.000 en vez de $10000)
+- Chequear si slider de créditos puede moverse haciendo slide con el dedo, sin necesidad de apretar botones.
 
 Simulador:
 - Agregar un modal que aparezca en hover sobre cada opción, con mensaje explicativo de qué completar.

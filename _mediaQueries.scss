@@ -131,11 +131,11 @@
     }
 
     .credits {
-    padding: 5rem 0 10rem 0;
+    padding: 4rem 0 10rem 0;
     
         .credits_nav {
             h2 {
-            font-size: 2rem;
+            font-size: 2.5rem;
             }
 
             ul {
@@ -149,10 +149,11 @@
 
         article {
         flex-direction: column;
-        margin: 3rem 2rem 3rem 2rem;
+        margin: 1.5rem 2rem 3rem 2rem;
             .txt {
             margin: .5rem 0 1.5rem 0;
             max-width: 18rem;
+
             }
             .credit_img {
             width: 18rem;
@@ -161,16 +162,20 @@
     }
     
     .simulator {
-// height: 50rem;
-// display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+    height: 55rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     
-    .simulator > * {
-    margin: 0 auto 15rem auto;
-    padding-top: 2rem;
-    }
+        h2 {
+        font-size: 2.5rem;
+        margin: 2rem 0 1.5rem 0;
+        }
+
+        .simulator > * {
+        margin: 0 auto 15rem auto;
+        padding-top: 2rem;
+        }
 
     // Por algún motivo este elemento no se centra con el display flex, ni con otros métodos. Momentáneamente quedó con el valor de margin left.
     #simulator-form {
@@ -179,10 +184,11 @@
         align-items: center;
 
         p {
-        font-size: 1.25rem;
+        font-size: 1rem;
         max-width: 16rem;
-        margin: 0 0 0 0;
+        margin: 0 0 1.5rem 0;
         text-align: center;
+        line-height: 1.5rem;
         }
 
         form {
@@ -196,8 +202,8 @@
     }
 
     #simulator-form-response {
-    max-width: 25rem;
-    margin: 0 2rem;
+    max-width: 22rem;
+    margin-top: 5rem;
     }
 
     // Por algún motivo este elemento no se centra con el display flex, ni con otros métodos. Momentáneamente quedó con el valor de margin left.
@@ -207,10 +213,11 @@
         align-items: center;
     
         p {
-        font-size: 1.25rem;
+        font-size: 1rem;
         max-width: 16rem;
-        margin: 0 0 0 0;
+        margin: 0 0 1.5rem 0;
         text-align: center;
+        line-height: 1.5rem;
         }
 
         form {
@@ -219,7 +226,7 @@
 
             #contactForm_ErrorMessage {
             font-size: 1rem;
-            } 
+            }
         }
     }
 
@@ -228,6 +235,10 @@
         div {
         flex-direction: column;
 
+            p {
+            max-width: 22rem;
+            }
+            
             img {
             width: 10rem;
             margin: 0 0 1.5rem 0;
@@ -236,9 +247,10 @@
     }
 
     #credit-history {
+    margin: 6rem 0 0 -4rem;
 
-        .credit-history_table {
-        margin: 0 auto 2rem auto;
+    .credit-history_table {
+    margin: 0 auto 2rem auto;
 
             th {
             padding: .5rem .5rem;

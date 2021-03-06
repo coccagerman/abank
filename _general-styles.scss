@@ -115,13 +115,19 @@ overflow: hidden;
 
 .activeElement {
 position: absolute;
-left: 20%;
+left: 22%;
 transition: left 1.5s;
 }
 
 .hiddenElement {
 position: absolute;
 left: -600%;
+transition: left 1.5s;
+}
+
+.specialAlignment { /*----------- For credit history section, which needs a different position % to be centered --------- */
+position: absolute;
+left: 18%;
 transition: left 1.5s;
 }
 

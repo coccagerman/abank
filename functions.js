@@ -152,7 +152,7 @@ function sendContactForm () {
         dataType: "json"
     })
     .done (function(resultado) {
-        message.text(`Gracias, ${name}!` + resultado.contactMessage.message )
+        message.text(`Gracias, ${name}! ` + resultado.contactMessage.message )
     })
     .fail (function(xhr, status, error) {
         message.text(`Lo sentimos, ocurrió un error en nuestro sistema. Por favor cargue nuevamente su solicitud.`)
@@ -170,6 +170,8 @@ function sendContactForm () {
 function seeCreditHistory () {
     $("#contact-form-response").attr("class", "hiddenElement");
     $("#credit-history").attr("class", "activeElement");
+    $("#credit-history").attr("class", "specialAlignment");
+
 
     // Takes the credit variables stored in sessionStorage and prints them in a table.
     let newRow = document.createElement("tr")
@@ -191,6 +193,7 @@ function seeCreditHistory () {
     newRow.appendChild(tdCantidadCuotas)
     newRow.appendChild(tdValorCuotas)
     document.getElementById("credit-history_table").appendChild(newRow)
+
 }
 
 function simulateAgain () {
