@@ -134,7 +134,6 @@ function sendContactForm () {
     if (nameValidation == false || telephoneValidation == false || emailValidation == false) {
     $("#contactForm_ErrorMessage").attr("class", "displayBlock")
     }
-
     else {
     // Hides error message.
     $("#contactForm_ErrorMessage").attr("class", "displayNone")
@@ -145,8 +144,20 @@ function sendContactForm () {
     // Takes contact form's values, forms a strings and prints them in a message.
     let message = $("#contact-form-response_message-p")
     message.text("")
-    message.text(`Gracias, ${name}!
-    A la brevedad nos comunicaremos con vos para adjudicar tu crédito.`)
+
+    // GET - AJAX
+    $.ajax({
+        url: "/contactMessage.json",
+        type: "GET",
+        dataType: "json"
+    })
+    .done (function(resultado) {
+        message.text(`Gracias, ${name}!` + resultado.contactMessage.message )
+    })
+    .fail (function(xhr, status, error) {
+        message.text(`Lo sentimos, ocurrió un error en nuestro sistema. Por favor cargue nuevamente su solicitud.`)
+    })
+
 
     // Stores credit variables in sessionStorage to show them in credit history afterwards.
     sessionStorage.setItem('creditType', creditType)
