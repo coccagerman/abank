@@ -1,3 +1,7 @@
+// // ----------------------- Credit amount input ----------------------- Test
+
+
+
 // // ----------------------- MOBILE NAVBAR ----------------------- Mobile navbar animated button
 
 function displayMobileMenu () {
@@ -99,10 +103,10 @@ function calculatePayments () {
     // Forms string and prints it.
     let message = $("#simulator-form-response_message")
     message.text("") // Resets value so it prints again with each simulation.
-    message.text(`Para solicitar un crédito ${creditType} por $${creditAmount} a pagar en ${numberOfPayments} cuotas, deberá pagar ${numberOfPayments} cuotas de $${paymentsValue}.`)
+    message.text(`Para solicitar un crédito ${creditType} por $${numberThousandSeparator(creditAmount)} a pagar en ${numberOfPayments} cuotas, deberá pagar ${numberOfPayments} cuotas de $${numberThousandSeparator(paymentsValue)}.`)
     $("#btn-contact-form").before(message)
     }
-    
+
     else {
     $("#amountErrorMessage").attr("class", "displayBlock")
     }
@@ -117,8 +121,8 @@ function requestCredit () {
     message.text("")
     message.text(`
     Tipo de crédito: ${creditType}
-    Monto: $${creditAmount}
-    Costo: ${numberOfPayments} cuotas de $${paymentsValue}`)
+    Monto: $${numberThousandSeparator(creditAmount)}
+    Costo: ${numberOfPayments} cuotas de $${numberThousandSeparator(paymentsValue)}`)
     $("#btn-send-contact-form").before(message)
 }
 
@@ -158,12 +162,11 @@ function sendContactForm () {
         message.text(`Lo sentimos, ocurrió un error en nuestro sistema. Por favor cargue nuevamente su solicitud.`)
     })
 
-
     // Stores credit variables in sessionStorage to show them in credit history afterwards.
     sessionStorage.setItem('creditType', creditType)
-    sessionStorage.setItem('monto', creditAmount)
+    sessionStorage.setItem('monto', numberThousandSeparator(creditAmount))
     sessionStorage.setItem('cantidadCuotas', numberOfPayments)
-    sessionStorage.setItem('valorCuotas', paymentsValue)
+    sessionStorage.setItem('valorCuotas', numberThousandSeparator(paymentsValue))
     }
 }
 
@@ -264,19 +267,19 @@ function modifyAvailableAmounts (netIncome, minAmount, maxAmount) {
     $("#creditAmount").attr("min", minAmount)
     $("#creditAmount").attr("max", maxAmount*0.5)
     // Print the available amounts for each credit in a message.
-    creditAmount_tittle.text(`Monto a solicitar (Montos disponibles: $${minAmount} - $${maxAmount*0.5})`)
+    creditAmount_tittle.text(`Monto a solicitar (Montos disponibles: $${numberThousandSeparator(minAmount)} - $${numberThousandSeparator(maxAmount*0.5)})`)
     } 
     
     else if (netIncome == "$50.000 - $75.000") {
     $("#creditAmount").attr("min", minAmount)
     $("#creditAmount").attr("max", maxAmount*0.75)
-    creditAmount_tittle.text(`Monto a solicitar (Montos disponibles: $${minAmount} - $${maxAmount*0.75})`)
+    creditAmount_tittle.text(`Monto a solicitar (Montos disponibles: $${numberThousandSeparator(minAmount)} - $${numberThousandSeparator(maxAmount*0.75)})`)
     } 
     
     else if (netIncome == "+$75.0000") {
     $("#creditAmount").attr("min", minAmount)
     $("#creditAmount").attr("max", maxAmount)
-    creditAmount_tittle.text(`Monto a solicitar (Montos disponibles: $${minAmount} - $${maxAmount})`)
+    creditAmount_tittle.text(`Monto a solicitar (Montos disponibles: $${numberThousandSeparator(minAmount)} - $${numberThousandSeparator(maxAmount)})`)
     }
 }
 

@@ -13,3 +13,7 @@ function validateInput (regex, field) {
     }
 }
 
+// Regex used to insert thousand separator in forms' numeric inputs.
+function numberThousandSeparator(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+}
