@@ -177,7 +177,6 @@
         padding-top: 2rem;
         }
 
-    // Por algún motivo este elemento no se centra con el display flex, ni con otros métodos. Momentáneamente quedó con el valor de margin left.
     #simulator-form {
     flex-direction: column;
         justify-content: center;
@@ -206,7 +205,6 @@
     margin-top: 5rem;
     }
 
-    // Por algún motivo este elemento no se centra con el display flex, ni con otros métodos. Momentáneamente quedó con el valor de margin left.
     #contact-form {
     flex-direction: column;
         justify-content: center;
@@ -308,91 +306,312 @@
 @media screen and (min-width: 768px) and (max-width: 1024px) {
 
     .activeElement {
-    left: 0%;
-    }
-
-    header{
-
-        .header_logo {
-        position: static;
-        width: 15rem;
-        margin: .5rem 33rem 0 0;
-        z-index: 4;
+        left: 0%;
         }
-
-        nav {
-        position: fixed;
-            left: -100%;
+    
+        header{
+    
+            .header_logo {
+            position: static;
             top: 0;
-        width: 100%;
-        height: 100vh;
-        overflow-y: hidden;
-        background: $blue;
-        transition: left 0.5s;
-        z-index: 3;
-
-            ul {
+            left: 0;
+            width: 20rem;
+            margin: .15rem 45rem 0 0;
+            z-index: 4;
+            }
+    
+            nav {
+            position: fixed;
+                left: -100%;
+                top: 0;
             width: 100%;
-            height: 100%;
-            flex-direction: column;
+            height: 100vh;
+            overflow-y: hidden;
+            background: linear-gradient(160deg, rgba(38,111,245,1) 75%, rgba(68,255,212,1) 100%);
+            transition: left 0.5s;
+            z-index: 3;
+    
+                ul {
+                width: 100%;
+                height: 100%;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                }
+    
+                ul li {
+                margin: 1rem 0;
+                }
+    
+                ul a {
+                font-size: 5rem;
+                font-weight: bold;
+                color: white;
+                }
+            }
+    
+            .menu-active {
+            left: 0;
+            transition: left .5s;
+            }
+    
+            .hamburguer-icon {
+            position: absolute;
+            top: 2.5rem;
+            right: 3rem;
+            margin: auto;
+            z-index: 4;
+    
+    
+                .line {
+                background: white;
+                border-radius: .5rem;
+                width: 50px;
+                height: 8px;
+                margin-bottom: 8px;
+                transition: .5s;
+                }
+    
+                .top {
+                -ms-transform: rotate(-45deg); /* IE 9 */
+                -webkit-transform: rotate(-45deg); /* Chrome, Safari, Opera */
+                transform: rotate(-45deg);
+                top: 18px;
+                position: relative;
+                }
+    
+                .center {
+                visibility: hidden;
+                opacity: 0;
+                transition: visibility 0s 0,3s, opacity 2s linear;
+                }
+                    
+                .bottom {
+                -ms-transform: rotate(140deg); /* IE 9 */
+                -webkit-transform: rotate(140deg); /* Chrome, Safari, Opera */
+                transform: rotate(45deg);
+                top: -14px;
+                position: relative;
+                }
+            }
+        }
+    
+        .hero {
+            p {
+            position: relative;
+            z-index: 2;
+            top: 6rem;
+            margin: 0 0 2rem 1rem;
+            font-size: 5.5rem;
+            max-width: 7rem;
+            }
+        }
+    
+        .aboutUs {
+        display: block;
+        
+            .aboutUs-txt{
+            position: relative;
+            font-size: 2rem;
+            width: 100%;
+            margin: 2rem 0 8rem 0;
+            text-align: center;
+            }
+        
+            .aboutUs-img{
+            display: none;
+            }
+        }
+    
+        .steps {
+
+            .txt {
+            font-size: 2.5rem;
+            padding: 0 2rem;
+            }
+
+            div {
+            padding-top: 1rem;
+            flex-direction: row;
+            flex-wrap: wrap;
+        
+                article {
+                margin: 0 2rem;
+                padding: 1rem;
+                height: 26rem;
+                width: 24rem;
+                }
+            }
+        }
+    
+        .credits {
+        padding: 12rem 0;
+        
+            .credits_nav {
+                h2 {
+                font-size: 4rem;
+                }
+    
+                ul {
+                flex-wrap: wrap;
+                margin-top: 1rem;
+                    a {
+                    font-size: 1.75rem;
+                    }
+                    
+                }
+            }
+    
+            article {
+            flex-direction: row;
+            margin: 1.5rem 2rem 3rem 2rem;
+                .txt {
+                font-size: 1.25rem;
+                max-width: 28rem;
+                }
+                .credit_img {
+                width: 20rem;
+                }
+            }
+        }
+        
+        .simulator {
+        height: 55rem;
+        flex-direction: column;
             justify-content: center;
             align-items: center;
+        
+            h2 {
+            font-size: 4rem;
+            margin: 2rem 0 1.5rem 0;
             }
-
-            ul li {
-            margin: 1rem 0;
+    
+            .simulator > * {
+            margin: 0 0 15rem 0;
+            padding-top: 2rem;
             }
-
-            ul a {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: white;
+    
+            #simulator-form {
+            flex-direction: row;
+                justify-content: center;
+                align-items: center;
+    
+            p {
+            font-size: 1.5rem;
+            max-width: 16rem;
+            margin: 0 0 1.5rem 0;
+            padding: 0 .5rem;
+            text-align: center;
+            line-height: 1.5rem;
+            }
+    
+            form {
+            width: 20rem;
+            margin-left: 1.25rem;
+            }
+    
+            #amountErrorMessage, #insuficientIncomeMessage {
+            font-size: 1rem;
+            } 
+        }
+    
+        #simulator-form-response {
+        max-width: 22rem;
+        margin-top: 5rem;
+        }
+    
+            #contact-form {
+        flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        
+            p {
+            font-size: 1rem;
+            max-width: 16rem;
+            margin: 0 0 1.5rem 0;
+            text-align: center;
+            line-height: 1.5rem;
+            }
+    
+            form {
+            width: 20rem;
+            margin-left: 1.25rem;
+    
+                #contactForm_ErrorMessage {
+                font-size: 1rem;
+                }
             }
         }
-
-        .menu-active {
-        left: 0;
-        transition: left .5s;
-        }
-
-        .hamburguer-icon {
-        position: absolute;
-        top: 1.5rem;
-        right: 2rem;
-        margin: auto;
-        z-index: 4;
-
-
-            .line {
-            background: white;
-            border-radius: .5rem;
-            width: 40px;
-            height: 6px;
-            margin-bottom: 8px;
-            transition: .5s;
-            }
-
-            .top {
-            -ms-transform: rotate(-45deg); /* IE 9 */
-            -webkit-transform: rotate(-45deg); /* Chrome, Safari, Opera */
-            transform: rotate(-45deg);
-            top: 18px;
-            position: relative;
-            }
-
-            .center {
-            visibility: hidden;
-            opacity: 0;
-            transition: visibility 0s 0,3s, opacity 2s linear;
-            }
+    
+        #contact-form-response {
+    
+            div {
+            flex-direction: column;
+    
+                p {
+                max-width: 22rem;
+                }
                 
-            .bottom {
-            -ms-transform: rotate(140deg); /* IE 9 */
-            -webkit-transform: rotate(140deg); /* Chrome, Safari, Opera */
-            transform: rotate(45deg);
-            top: -10px;
-            position: relative;
+                img {
+                width: 10rem;
+                margin: 0 0 1.5rem 0;
+                }
+            }
+        }
+    
+        #credit-history {
+        margin: 6rem 0 0 -4rem;
+    
+        .credit-history_table {
+        margin: 0 auto 2rem auto;
+    
+                th {
+                padding: .5rem .5rem;
+                }
+            }
+        }
+        }
+    
+        .contact {
+            
+            div {
+            padding: 2rem 0 4rem 0;
+            flex-direction: column;
+        
+                article {
+                margin: 1rem;
+                }
+            }
+        }
+    
+        footer {
+    
+            .footer_container {
+            flex-flow: column-reverse;
+            margin-top: -8rem;
+    
+                .footer_logo {
+                margin-bottom: 1rem;
+                }
+    
+                .footer_nav_desktop {
+                display: none;
+                }
+    
+                .footer_nav_mobile {
+                text-align: center;
+                margin-bottom: 0rem;
+                display: flex;
+                   flex-direction: column;
+                }
+    
+                .socialNetwork {
+                margin: 3rem 1rem;
+                }
+    
+                .usuariosFinancieros {
+                display: none;
+                }
             }
         }
     }
-}
