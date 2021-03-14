@@ -1,7 +1,3 @@
-// // ----------------------- Credit amount input ----------------------- Test
-
-
-
 // // ----------------------- MOBILE NAVBAR ----------------------- Mobile navbar animated button
 
 function displayMobileMenu () {
@@ -178,23 +174,23 @@ function seeCreditHistory () {
 
     // Takes the credit variables stored in sessionStorage and prints them in a table.
     let newRow = document.createElement("tr")
-    let tdTipo = document.createElement("td")
-    let contenidoTipo = document.createTextNode(sessionStorage.getItem('creditType'))
-    tdTipo.appendChild(contenidoTipo)
-    let tdMonto = document.createElement("td")
-    let contenidoMonto = document.createTextNode(`$${sessionStorage.getItem('monto')}`)
-    tdMonto.appendChild(contenidoMonto)
-    let tdCantidadCuotas = document.createElement("td")
-    let contenidoCantidadCuotas = document.createTextNode(`${sessionStorage.getItem('cantidadCuotas')} cuotas`)
-    tdCantidadCuotas.appendChild(contenidoCantidadCuotas)
-    let tdValorCuotas = document.createElement("td")
-    let contenidoValorCuotas = document.createTextNode(`$${sessionStorage.getItem('valorCuotas')}`)
-    tdValorCuotas.appendChild(contenidoValorCuotas)
+    let tdType = document.createElement("td")
+    let contentType = document.createTextNode(sessionStorage.getItem('creditType'))
+    tdType.appendChild(contentType)
+    let tdAmount = document.createElement("td")
+    let contentAmount = document.createTextNode(`$${sessionStorage.getItem('monto')}`)
+    tdAmount.appendChild(contentAmount)
+    let tdPaymentsNumber = document.createElement("td")
+    let contentPaymentsNumber = document.createTextNode(`${sessionStorage.getItem('cantidadCuotas')} cuotas`)
+    tdPaymentsNumber.appendChild(contentPaymentsNumber)
+    let tdPaymentsValue = document.createElement("td")
+    let contentPaymentsValue = document.createTextNode(`$${sessionStorage.getItem('valorCuotas')}`)
+    tdPaymentsValue.appendChild(contentPaymentsValue)
 
-    newRow.appendChild(tdTipo)
-    newRow.appendChild(tdMonto)
-    newRow.appendChild(tdCantidadCuotas)
-    newRow.appendChild(tdValorCuotas)
+    newRow.appendChild(tdType)
+    newRow.appendChild(tdAmount)
+    newRow.appendChild(tdPaymentsNumber)
+    newRow.appendChild(tdPaymentsValue)
     document.getElementById("credit-history_table").appendChild(newRow)
 
 }
